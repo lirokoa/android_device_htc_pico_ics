@@ -36,9 +36,12 @@ TARGET_NO_RADIOIMAGE := true
 
 #Recovery
 BOARD_CUSTOM_RECOVERY_KEYMAPPING:= ../../device/htc/pico/recovery/recovery_ui.c
-#BOARD_CUSTOM_GRAPHICS := ../../../device/htc/pico/recovery/graphics.c
+BOARD_CUSTOM_GRAPHICS := ../../../device/htc/pico/recovery/graphics.c
 TARGET_PREBUILT_RECOVERY_KERNEL := device/htc/pico/prebuilt/recovery_kernel
 TARGET_RECOVERY_INITRC := device/htc/pico/files/recovery.rc
+TARGET_RECOVERY_FSTAB := device/htc/pico/recovery.fstab
+BOARD_USE_CUSTOM_RECOVERY_FONT := "<font_7x16.h>"
+BOARD_RECOVERY_HANDLES_MOUNT := true
 
 # Yes we do,but let's hash it out 
 # ARCH_ARM_HAVE_VFP := true
@@ -56,7 +59,7 @@ BOARD_KERNEL_CMDLINE := no_console_suspend=1 console=null
 BOARD_KERNEL_BASE := 0x12c00000
 BOARD_PAGE_SIZE := 0x00000800
 
-# Additional librarys
+# Additional libraries
 
 TARGET_PROVIDES_LIBAUDIO := true
 
@@ -118,6 +121,7 @@ DCHECK_FOR_EXTERNAL_FORMAT := true
 BOARD_USE_SKIA_LCDTEXT := true
 BOARD_FORCE_DITHERING := true
 USE_OPENGL_RENDERER := true
+BOARD_NEEDS_MEMORYHEAPPMEM := true
 TARGET_USES_GENLOCK := true
 TARGET_FORCE_CPU_UPLOAD := true
 BOARD_AVOID_DRAW_TEXTURE_EXTENSION := true
