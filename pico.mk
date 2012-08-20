@@ -80,19 +80,6 @@ PRODUCT_COPY_FILES += \
     device/htc/pico/files/ueventd.pico.rc:root/ueventd.pico.rc \
     device/htc/pico/files/init.pico.usb.rc:root/init.pico.usb.rc \
     
-## Camera
-#PRODUCT_COPY_FILES += \
-#    device/samsung/trebon/prebuilt/system/lib/hw/camera.trebon.so:system/lib/hw/camera.trebon.so \
-#    device/samsung/trebon/prebuilt/system/lib/libcamera.so:system/lib/libcamera.so \
-#    device/samsung/trebon/prebuilt/system/lib/lib/system/libcamera_client.so:system/lib/libcamera_client.so \
-#    device/samsung/trebon/prebuilt/system/lib/lib/system/libcameraservice.so:system/lib/libcameraservice.so \
-#    device/samsung/trebon/prebuilt/system/lib/libmm-adspsvc.so:system/lib/libmm-adspsvc.so \
-#    device/samsung/trebon/prebuilt/system/lib/libmmgsdilib.so:system/lib/libmmgsdilib.so \
-#    device/samsung/trebon/prebuilt/system/lib/libmmipl.so:system/lib/libmmipl.so \
-#    device/samsung/trebon/prebuilt/system/lib/libmmjpeg.so:system/lib/libmmjpeg.so \
-#    device/samsung/trebon/prebuilt/system/lib/libmm-omxcore.so:system/lib/libmm-omxcore.so \
-#    device/samsung/trebon/prebuilt/system/lib/liboemcamera.so:system/lib/liboemcamera.so    
-    
 # Set usb type
 ADDITIONAL_DEFAULT_PROPERTIES += \
     persist.sys.usb.config=mass_storage \
@@ -145,8 +132,8 @@ PRODUCT_COPY_FILES += \
     device/htc/pico/prebuilt/etc/AudioPara4.csv:system/etc/AudioPara4.csv \
     device/htc/pico/prebuilt/etc/AudioPara4_WB.csv:system/etc/AudioPara4_WB.csv \
     device/htc/pico/prebuilt/etc/AudioPreProcess.csv:system/etc/AudioPreProcess.csv \
-    vendor/htc/pico/proprietary/lib/libaudioeq.so:system/lib/libaudioeq.so \
-    vendor/htc/pico/proprietary/lib/libhtc_acoustic.so:system/lib/libhtc_acoustic.so \
+    device/htc/pico/prebuilt/lib/libaudioeq.so:system/lib/libaudioeq.so \
+    device/htc/pico/prebuilt/lib/libhtc_acoustic.so:system/lib/libhtc_acoustic.so \
 
 # Device permissions
 PRODUCT_COPY_FILES += \
