@@ -35,6 +35,7 @@ TARGET_NO_BOOTLOADER := true
 TARGET_NO_RADIOIMAGE := true
 
 #Recovery
+TARGET_NO_RECOVERY := false
 BOARD_CUSTOM_RECOVERY_KEYMAPPING:= ../../device/htc/pico/recovery/recovery_ui.c
 BOARD_CUSTOM_GRAPHICS := ../../../device/htc/pico/recovery/graphics.c
 BOARD_RECOVERY_HANDLES_MOUNT := true
