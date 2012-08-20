@@ -17,6 +17,9 @@ USE_CAMERA_STUB := true
 
 COMMON_GLOBAL_CFLAGS += -DBINDER_COMPAT
 
+#Jb Libhwcomposer
+TARGET_NO_HW_VSYNC := true
+
 # Needs Review
 #BOARD_CAMERA_USE_GETBUFFERINFO := true
 # This is needed by libcamera.so
