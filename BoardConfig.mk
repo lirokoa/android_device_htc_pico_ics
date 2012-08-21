@@ -36,11 +36,10 @@ TARGET_NO_RADIOIMAGE := true
 
 #Recovery
 BOARD_CUSTOM_RECOVERY_KEYMAPPING:= ../../device/htc/pico/recovery/recovery_ui.c
-BOARD_CUSTOM_GRAPHICS := ../../../device/htc/pico/recovery/graphics.c
+#BOARD_CUSTOM_GRAPHICS := ../../../device/htc/pico/recovery/graphics.c
 TARGET_PREBUILT_RECOVERY_KERNEL := device/htc/pico/prebuilt/recovery_kernel
 TARGET_RECOVERY_INITRC := device/htc/pico/files/recovery.rc
 TARGET_RECOVERY_FSTAB := device/htc/pico/recovery.fstab
-BOARD_USE_CUSTOM_RECOVERY_FONT := "<font_7x16.h>"
 BOARD_RECOVERY_HANDLES_MOUNT := true
 
 # Yes we do,but let's hash it out 
@@ -51,8 +50,8 @@ TARGET_CPU_ABI2 := armeabi
 ARCH_ARM_HAVE_TLS_REGISTER := true
 TARGET_BOOTLOADER_BOARD_NAME := pico
 BOARD_NO_SPEAKER := true # msm7627a doesn't have speaker
-TARGET_CORTEX_CACHE_LINE_32 := true
-TARGET_USE_SPARROW_BIONIC_OPTIMIZATION := true
+#TARGET_CORTEX_CACHE_LINE_32 := true
+#TARGET_USE_SPARROW_BIONIC_OPTIMIZATION := true
 
 # Kernel
 BOARD_KERNEL_CMDLINE := no_console_suspend=1 console=null
@@ -94,7 +93,7 @@ BOARD_USES_QCOM_HARDWARE := true
 BOARD_USES_QCOM_LIBRPC := true
 BOARD_USES_QCOM_LIBS := true
 TARGET_GRALLOC_USES_ASHMEM := true
-COMMON_GLOBAL_CFLAGS += -DTARGET_MSM7x27
+#COMMON_GLOBAL_CFLAGS += -DTARGET_MSM7x27
 
 # Wifi related defines
 BOARD_WPA_SUPPLICANT_DRIVER      := WEXT

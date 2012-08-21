@@ -15,9 +15,6 @@
 # proprietary side of the device
 # Inherit from those products. Most specific first
 
-# We havent decided what props we need,yet
-# $(call inherit-product-if-exists, vendor/htc/pico/pico-vendor.mk)
-
 # Video decoding
 PRODUCT_PACKAGES += \
     libstagefrighthw \
@@ -33,7 +30,8 @@ PRODUCT_PACKAGES += \
     libtilerenderer \
     libgenlock \
     liboverlay \
-    libQcomUI
+    libQcomUI \
+    libmemalloc
     
 # Audio
 PRODUCT_PACKAGES += \
@@ -86,7 +84,6 @@ ADDITIONAL_DEFAULT_PROPERTIES += \
     persist.sys.usb.config=mass_storage \
     persist.service.adb.enable=1
 
-$(call inherit-product, build/target/product/full.mk)
 DEVICE_PACKAGE_OVERLAYS += device/htc/pico/overlay
 
 # Publish that we support the live wallpaper feature.
@@ -97,10 +94,6 @@ PRODUCT_COPY_FILES += \
     LiveWallpapersPicker \
     VisualizationWallpapers \
     librs_jni
-
-# Releasetools
-PRODUCT_COPY_FILES += \
-     device/htc/pico/releasetools/extras.sh:system/bin/extras.sh
 
 # Vold 
 PRODUCT_COPY_FILES += \
@@ -152,9 +145,6 @@ PRODUCT_COPY_FILES += \
 PRODUCT_COPY_FILES += \
     device/htc/pico/prebuilt/lib/hw/sensors.pico.so:system/lib/hw/sensors.pico.so \
     
-# GPS
-# Don't work on 4.0.4 because from 2.3.5! You need to compile it with yourself
-
 # 3D(ICS Blobs)
 PRODUCT_COPY_FILES += \
     vendor/htc/pico/proprietary/etc/firmware/yamato_pfp.fw:system/etc/firmware/yamato_pfp.fw \
@@ -175,11 +165,7 @@ PRODUCT_COPY_FILES += \
 # RIL
 PRODUCT_COPY_FILES += \
     vendor/htc/pico/proprietary/lib/libhtc_ril.so:system/lib/libhtc_ril.so \
-    
-#CHROMATIX
-# Don't work on 4.0.4 because from 2.3.5! We don't need this!
-
-# Don't work on 4.0.4 because from 2.3.5! You need to compile it with yourself
+ 
 PRODUCT_COPY_FILES += \
     vendor/htc/pico/proprietary/etc/gps.conf:system/etc \
     vendor/htc/pico/proprietary/etc/spn-conf.xml:system/etc 
@@ -212,15 +198,8 @@ PRODUCT_COPY_FILES += \
     device/htc/pico/prebuilt/usr/keylayout/synaptics-rmi-touchscreen.kl:system/usr/keylayout/synaptics-rmi-touchscreen.kl \
     device/htc/pico/prebuilt/usr/idc/himax-touchscreen.idc:system/usr/idc/himax-touchscreen.idc \
     device/htc/pico/prebuilt/usr/idc/synaptics-rmi-touchscreen.idc:system/usr/idc/synaptics-rmi-touchscreen.idc \
-    
-
-
-# Camera 
-# Don't work on 4.0.4 because from 2.3.5! Need open source drivers for ics from qualcomm or need hack for 2.3.5 proprietary
 
 PRODUCT_PROPERTY_OVERRIDES += \
-    ro.product.camera=pico \
-    debug.camcorder.disablemeta=1 \
     ro.com.google.locationfeatures=1 \
     ro.com.google.networklocation=1 \
     ro.com.google.gmsversion=2.3_r6 \
