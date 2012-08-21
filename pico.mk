@@ -238,6 +238,5 @@ PRODUCT_PROPERTY_OVERRIDES += \
     media.stagefright.enable-aac=true \
     media.stagefright.enable-qcp=true
     
-PRODUCT_LOCALES := en_GB
 PRODUCT_AAPT_CONFIG := normal mdpi
 PRODUCT_AAPT_PREF_CONFIG := mdpi

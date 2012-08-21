@@ -108,8 +108,8 @@ WIFI_DRIVER_MODULE_NAME          := "bcm4330"
 WIFI_DRIVER_MODULE_ARG           := "firmware_path=/system/etc/firmware/fw_bcm4330b2.bin nvram_path=/proc/calibration iface_name=eth0"
 
 # Releasetools
-TARGET_RELEASETOOLS_EXTENSIONS := device/htc/pico/releasetools
-TARGET_RELEASETOOL_OTA_FROM_TARGET_SCRIPT := device/htc/pico/releasetools/ota_from_target_files
+#TARGET_RELEASETOOLS_EXTENSIONS := device/htc/pico/releasetools
+#TARGET_RELEASETOOL_OTA_FROM_TARGET_SCRIPT := device/htc/pico/releasetools/ota_from_target_files
 
 # GPS
 BOARD_USES_QCOM_GPS := true

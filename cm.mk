@@ -1,9 +1,6 @@
 # Prepare for new BootAnimation
 TARGET_BOOTANIMATION_NAME := vertical-320x480
 
-## Specify phone tech before including full_phone
-$(call inherit-product, vendor/cm/config/gsm.mk)
-
 # Include GSM stuff
 $(call inherit-product, vendor/cm/config/gsm.mk)
 
@@ -31,5 +28,4 @@ PRODUCT_BUILD_PROP_OVERRIDES += PRODUCT_NAME=pico BUILD_ID=IMLK74 BUILD_FINGERPR
 
 # Release name and versioning
 PRODUCT_RELEASE_NAME := pico
-PRODUCT_VERSION_DEVICE_SPECIFIC :=
  
