@@ -99,8 +99,6 @@ ro.ril.disable.power.collapse=0
 # For PDP overlap problem
 ro.ril.avoid.pdp.overlap = 1
 
-video.accelerate.hw=1
-
 #
 # This file describes the media capabilities and profiles
 # using system properties.
@@ -146,4 +144,36 @@ service.brcm.bt.avrcp_pass_thru = 0
 service.brcm.bt.avrcp_toggle = 1
 service.brcm.bt.local_name =
 
+# USB
 persist.sys.usb.config=mass_storage,adb
+
+# CAF
+persist.rild.nitz_plmn=
+persist.rild.nitz_long_ons_0=
+persist.rild.nitz_long_ons_1=
+persist.rild.nitz_long_ons_2=
+persist.rild.nitz_long_ons_3=
+persist.rild.nitz_short_ons_0=
+persist.rild.nitz_short_ons_1=
+persist.rild.nitz_short_ons_2=
+persist.rild.nitz_short_ons_3=
+ril.subscription.types=NV,RUIM
+DEVICE_PROVISIONED=1
+debug.sf.hw=1
+debug.composition.7x27A.type=mdp
+video.accelerate.hw=1
+media.stagefright.enable-player=true
+media.stagefright.enable-meta=false
+media.stagefright.enable-scan=true
+media.stagefright.enable-http=true
+media.stagefright.enable-fma2dp=true
+media.stagefright.enable-aac=true
+media.stagefright.enable-qcp=true
+ro.use_data_netmgrd=true
+persist.data.ds_fmc_app.mode=0
+ro.staticwallpaper.pixelformat=RGB_565
+ro.max.fling_velocity=4000
+httplive.enable.discontinuity=true
+dev.pm.dyn_samplingrate=1
+dev.pm.dyn_sample_period=700000
+debug.camera.landscape=true
