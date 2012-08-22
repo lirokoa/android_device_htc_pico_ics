@@ -41,12 +41,12 @@ PRODUCT_PACKAGES += \
     dexpreopt \
     lights.msm7x27a \
     sensors.msm7x27a \
-    gps.pico \ 
+    gps.pico \
     GalaxyICS-FileManager  
 
 # Misc
 PRODUCT_PACKAGES += \
-    com.android.future.usb.accessory
+    com.android.future.usb.accessory \
     
 # Camera
 PRODUCT_PACKAGES += \
