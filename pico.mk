@@ -35,7 +35,6 @@ PRODUCT_PACKAGES += \
     audio_policy.msm7x27a \
     audio.a2dp.default \
     libaudioutils
-# libacoustic
 
 # Other
 PRODUCT_PACKAGES += \
@@ -43,10 +42,9 @@ PRODUCT_PACKAGES += \
     lights.msm7x27a \
     sensors.msm7x27a \
     gps.pico \   
-    librpc \
 
-#Misc
-PRODUCT_COPY_FILES += \
+# Misc
+PRODUCT_PACKAGES += \
     com.android.future.usb.accessory
     
 # Camera
