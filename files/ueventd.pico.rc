@@ -64,6 +64,7 @@
 /dev/audience_a1026*      0660   system     audio
 /dev/tpa2018d1*           0660   system     audio
 /dev/msm_audpre           0660   system     audio
+/dev/msm_voicememo        0660   system     audio
 /dev/msm_audio_ctl        0660   system     audio
 /dev/htc-acoustic         0660   system     audio
 /dev/vdec                 0660   system     audio
