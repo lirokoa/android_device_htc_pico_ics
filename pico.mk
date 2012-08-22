@@ -42,8 +42,8 @@ PRODUCT_PACKAGES += \
     dexpreopt \
     lights.msm7x27a \
     sensors.msm7x27a \
-    gps.pico    
-    librpc 
+    gps.pico \   
+    librpc \
     com.android.future.usb.accessory
     
 # Camera
