@@ -19,6 +19,8 @@ COMMON_GLOBAL_CFLAGS += -DBINDER_COMPAT
 
 #Jb Libhwcomposer
 TARGET_NO_HW_VSYNC := true
+BOARD_NEEDS_MEMORYHEAPPMEM := true
+BOARD_USES_QCOM_AUDIO_SPEECH := true
 
 # Needs Review
 #BOARD_CAMERA_USE_GETBUFFERINFO := true
@@ -36,7 +38,7 @@ TARGET_NO_RADIOIMAGE := true
 
 #Recovery
 BOARD_CUSTOM_RECOVERY_KEYMAPPING:= ../../device/htc/pico/recovery/recovery_ui.c
-#BOARD_CUSTOM_GRAPHICS := ../../../device/htc/pico/recovery/graphics.c
+BOARD_CUSTOM_GRAPHICS := ../../../device/htc/pico/recovery/graphics.c
 TARGET_PREBUILT_RECOVERY_KERNEL := device/htc/pico/prebuilt/recovery_kernel
 TARGET_RECOVERY_INITRC := device/htc/pico/files/recovery.rc
 TARGET_RECOVERY_FSTAB := device/htc/pico/recovery.fstab
@@ -50,8 +52,8 @@ TARGET_CPU_ABI2 := armeabi
 ARCH_ARM_HAVE_TLS_REGISTER := true
 TARGET_BOOTLOADER_BOARD_NAME := pico
 BOARD_NO_SPEAKER := true # msm7627a doesn't have speaker
-#TARGET_CORTEX_CACHE_LINE_32 := true
-#TARGET_USE_SPARROW_BIONIC_OPTIMIZATION := true
+TARGET_CORTEX_CACHE_LINE_32 := true
+TARGET_USE_SPARROW_BIONIC_OPTIMIZATION := true
 
 # Kernel
 BOARD_KERNEL_CMDLINE := no_console_suspend=1 console=null
@@ -59,8 +61,7 @@ BOARD_KERNEL_BASE := 0x12c00000
 BOARD_PAGE_SIZE := 0x00000800
 
 # Additional libraries
-
-TARGET_PROVIDES_LIBAUDIO := true
+# TARGET_PROVIDES_LIBAUDIO := true
 
 # Fix this up by examining /proc/mtd on a running device
 BOARD_BOOTIMAGE_PARTITION_SIZE := 0x00400000
@@ -106,10 +107,6 @@ WIFI_DRIVER_FW_PATH_AP           := "/system/etc/firmware/fw_bcm4330b2_apsta.bin
 WIFI_DRIVER_MODULE_NAME          := "bcm4330"
 WIFI_DRIVER_MODULE_ARG           := "firmware_path=/system/etc/firmware/fw_bcm4330b2.bin nvram_path=/proc/calibration iface_name=eth0"
 
-# Releasetools
-#TARGET_RELEASETOOLS_EXTENSIONS := device/htc/pico/releasetools
-#TARGET_RELEASETOOL_OTA_FROM_TARGET_SCRIPT := device/htc/pico/releasetools/ota_from_target_files
-
 # GPS
 BOARD_USES_QCOM_GPS := true
 BOARD_VENDOR_QCOM_GPS_LOC_API_HARDWARE := pico
@@ -128,21 +125,33 @@ BOARD_AVOID_DRAW_TEXTURE_EXTENSION := true
 #COMMON_GLOBAL_CFLAGS += -DMISSING_EGL_PIXEL_FORMAT_YV12 
 #COMMON_GLOBAL_CFLAGS += -DMISSING_EGL_EXTERNAL_IMAGE
 COMMON_GLOBAL_CFLAGS += -DHAVE_ARM_TLS_REGISTER
+COMMON_GLOBAL_CFLAGS += -DQCOM_HARDWARE -DREFRESH_RATE=60 -DQCOM_ICS_COMPAT -DFORCE_CPU_UPLOAD
+COMMON_GLOBAL_CFLAGS += -DQCOM_NO_SECURE_PLAYBACK -DBINDER_COMPAT
 
-# Browser
-WITH_JIT := true
-ENABLE_JSC_JIT := true
+# Webkit, browser
 JS_ENGINE := v8
 HTTP := chrome
+ENABLE_WEBGL := true
+TARGET_WEBKIT_USE_MORE_MEMORY := true
+
+# JIT
+WITH_JIT := true
+ENABLE_JSC_JIT := true
 
 # ICS Stuff 
 BOARD_HAS_NO_SELECT_BUTTON := true
 
 # RIL
 BOARD_USE_NEW_LIBRIL_HTC := true
+BOARD_USES_LEGACY_RIL := true
 
-COMMON_GLOBAL_CFLAGS += -DQCOM_HARDWARE
-COMMON_GLOBAL_CFLAGS += -DREFRESH_RATE=60
+# Bootanimation
+TARGET_BOOTANIMATION_USE_RGB565 := true
+TARGET_BOOTANIMATION_PRELOAD := false
+TARGET_BOOTANIMATION_TEXTURE_CACHE := true
+
+# Misc.
+TARGET_NO_INITLOGO := true
 
 # Touch screen compatibility for ICS
 BOARD_USE_LEGACY_TOUCHSCREEN := true

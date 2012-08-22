@@ -41,10 +41,6 @@ on boot
     chown system system /sys/class/leds/button-backlight/brightness
     chown system system /sys/class/leds/lcd-backlight/brightness
 
-    # flashlight
-    chown system camera /sys/devices/platform/flashlight.0/leds/flashlight/brightness
-    chmod 0660          /sys/devices/platform/flashlight.0/leds/flashlight/brightness
-
     # enable the GPS
     setprop ro.ril.def.agps.mode 2
 
@@ -63,8 +59,6 @@ on boot
 
 service wpa_supplicant /system/bin/wpa_supplicant \
     -Dwext -ieth0 -c/data/misc/wifi/wpa_supplicant.conf
-#   we will start as root and wpa_supplicant will switch to user wifi
-#   after setting up the capabilities required for WEXT
     class main
     socket wpa_eth0 dgram 660 wifi wifi
     disabled

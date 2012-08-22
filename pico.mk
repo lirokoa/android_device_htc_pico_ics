@@ -12,9 +12,6 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-# proprietary side of the device
-# Inherit from those products. Most specific first
-
 # Video decoding
 PRODUCT_PACKAGES += \
     libstagefrighthw \
@@ -31,15 +28,14 @@ PRODUCT_PACKAGES += \
     libgenlock \
     liboverlay \
     libQcomUI \
-    libmemalloc
     
 # Audio
 PRODUCT_PACKAGES += \
-    libacoustic \
     audio.primary.msm7x27a \
     audio_policy.msm7x27a \
     audio.a2dp.default \
     libaudioutils
+# libacoustic
 
 # Other
 PRODUCT_PACKAGES += \
@@ -47,32 +43,14 @@ PRODUCT_PACKAGES += \
     lights.msm7x27a \
     sensors.msm7x27a \
     gps.pico    
+    librpc 
+    com.android.future.usb.accessory
     
 # Camera
 PRODUCT_PACKAGES += \
     camera.msm7x27a    
-    
-# Misc
-PRODUCT_PACKAGES += \
-    com.android.future.usb.accessory
+    LegacyCamera 
 
-## Hardware properties 
-PRODUCT_COPY_FILES += \
-    frameworks/native/data/etc/android.hardware.camera.xml:system/etc/permissions/android.hardware.camera.xml \
-    frameworks/native/data/etc/android.hardware.location.gps.xml:system/etc/permissions/android.hardware.location.gps.xml \
-    frameworks/native/data/etc/android.hardware.location.xml:system/etc/permissions/android.hardware.location.xml \
-    frameworks/native/data/etc/android.hardware.sensor.accelerometer.xml:system/etc/permissions/android.hardware.sensor.accelerometer.xml \
-    frameworks/native/data/etc/android.hardware.sensor.compass.xml:system/etc/permissions/android.hardware.sensor.compass.xml \
-    frameworks/native/data/etc/android.hardware.sensor.light.xml:system/etc/permissions/android.hardware.sensor.light.xml \
-    frameworks/native/data/etc/android.hardware.sensor.proximity.xml:system/etc/permissions/android.hardware.sensor.proximity.xml \
-    frameworks/native/data/etc/android.hardware.telephony.gsm.xml:system/etc/permissions/android.hardware.telephony.gsm.xml \
-    frameworks/native/data/etc/android.hardware.touchscreen.multitouch.xml:system/etc/permissions/android.hardware.touchscreen.multitouch.xml \
-    frameworks/native/data/etc/android.hardware.wifi.xml:system/etc/permissions/android.hardware.wifi.xml \
-    frameworks/native/data/etc/android.hardware.wifi.direct.xml:system/etc/permissions/android.hardware.wifi.direct.xml \
-    frameworks/base/data/etc/platform.xml:system/etc/permissions/platform.xml \
-    frameworks/native/data/etc/android.software.sip.xml:system/etc/permissions/android.software.sip.xml \
-    frameworks/native/data/etc/android.software.sip.voip.xml:system/etc/permissions/android.software.sip.voip.xml \
-    frameworks/native/data/etc/handheld_core_hardware.xml:system/etc/permissions/handheld_core_hardware.xml
 # Init
 PRODUCT_COPY_FILES += \
     device/htc/pico/files/init.pico.rc:root/init.pico.rc \
@@ -98,9 +76,6 @@ PRODUCT_COPY_FILES += \
 # Vold 
 PRODUCT_COPY_FILES += \
     device/htc/pico/files/etc/vold.fstab:system/etc/vold.fstab 
-
-# Prebuilt Binaries
-# Don't work on 4.0.4 because from 2.3.5! And we don't need this !
 
 # Prebuilt Modules
 PRODUCT_COPY_FILES += \
@@ -131,15 +106,21 @@ PRODUCT_COPY_FILES += \
 
 # Device permissions
 PRODUCT_COPY_FILES += \
-    frameworks/base/data/etc/handheld_core_hardware.xml:system/etc/permissions/handheld_core_hardware.xml \
-    frameworks/base/data/etc/android.hardware.telephony.gsm.xml:system/etc/permissions/android.hardware.telephony.gsm.xml \
-    frameworks/base/data/etc/android.hardware.location.gps.xml:system/etc/permissions/android.hardware.location.gps.xml \
-    frameworks/base/data/etc/android.hardware.wifi.xml:system/etc/permissions/android.hardware.wifi.xml \
-    frameworks/base/data/etc/android.hardware.sensor.proximity.xml:system/etc/permissions/android.hardware.sensor.proximity.xml \
-    frameworks/base/data/etc/android.hardware.sensor.light.xml:system/etc/permissions/android.hardware.sensor.light.xml \
-    frameworks/base/data/etc/android.software.sip.voip.xml:system/etc/permissions/android.software.sip.voip.xml \
-    frameworks/base/data/etc/android.hardware.touchscreen.multitouch.xml:system/etc/permissions/android.hardware.touchscreen.multitouch.xml \
-    frameworks/base/data/etc/android.hardware.usb.accessory.xml:system/etc/permissions/android.hardware.usb.accessory.xml
+    frameworks/native/data/etc/android.hardware.camera.xml:system/etc/permissions/android.hardware.camera.xml \
+    frameworks/native/data/etc/android.hardware.location.gps.xml:system/etc/permissions/android.hardware.location.gps.xml \
+    frameworks/native/data/etc/android.hardware.location.xml:system/etc/permissions/android.hardware.location.xml \
+    frameworks/native/data/etc/android.hardware.sensor.accelerometer.xml:system/etc/permissions/android.hardware.sensor.accelerometer.xml \
+    frameworks/native/data/etc/android.hardware.sensor.compass.xml:system/etc/permissions/android.hardware.sensor.compass.xml \
+    frameworks/native/data/etc/android.hardware.sensor.light.xml:system/etc/permissions/android.hardware.sensor.light.xml \
+    frameworks/native/data/etc/android.hardware.sensor.proximity.xml:system/etc/permissions/android.hardware.sensor.proximity.xml \
+    frameworks/native/data/etc/android.hardware.telephony.gsm.xml:system/etc/permissions/android.hardware.telephony.gsm.xml \
+    frameworks/native/data/etc/android.hardware.touchscreen.multitouch.xml:system/etc/permissions/android.hardware.touchscreen.multitouch.xml \
+    frameworks/native/data/etc/android.hardware.wifi.xml:system/etc/permissions/android.hardware.wifi.xml \
+    frameworks/native/data/etc/android.hardware.wifi.direct.xml:system/etc/permissions/android.hardware.wifi.direct.xml \
+    frameworks/base/data/etc/platform.xml:system/etc/permissions/platform.xml \
+    frameworks/native/data/etc/android.software.sip.xml:system/etc/permissions/android.software.sip.xml \
+    frameworks/native/data/etc/android.software.sip.voip.xml:system/etc/permissions/android.software.sip.voip.xml \
+    frameworks/native/data/etc/handheld_core_hardware.xml:system/etc/permissions/handheld_core_hardware.xml
 
 # Sensors
 PRODUCT_COPY_FILES += \
@@ -159,16 +140,9 @@ PRODUCT_COPY_FILES += \
     vendor/htc/pico/proprietary/lib/egl/libGLESv2_adreno200.so:system/lib/egl/libGLESv2_adreno200.so \
     vendor/htc/pico/proprietary/lib/egl/libq3dtools_adreno200.so:system/lib/egl/libq3dtools_adreno200.so 
 
-# Camera
-# Don't work on 4.0.4 because from 2.3.5! An
-
 # RIL
 PRODUCT_COPY_FILES += \
     vendor/htc/pico/proprietary/lib/libhtc_ril.so:system/lib/libhtc_ril.so \
- 
-PRODUCT_COPY_FILES += \
-    vendor/htc/pico/proprietary/etc/gps.conf:system/etc \
-    vendor/htc/pico/proprietary/etc/spn-conf.xml:system/etc 
 
 # Audio DSP Profiles
 PRODUCT_COPY_FILES += \
@@ -199,6 +173,7 @@ PRODUCT_COPY_FILES += \
     device/htc/pico/prebuilt/usr/idc/himax-touchscreen.idc:system/usr/idc/himax-touchscreen.idc \
     device/htc/pico/prebuilt/usr/idc/synaptics-rmi-touchscreen.idc:system/usr/idc/synaptics-rmi-touchscreen.idc \
 
+# Some build.prop setings
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.com.google.locationfeatures=1 \
     ro.com.google.networklocation=1 \
@@ -217,5 +192,14 @@ PRODUCT_PROPERTY_OVERRIDES += \
     media.stagefright.enable-aac=true \
     media.stagefright.enable-qcp=true
     
+# HardwareRenderer properties
+PRODUCT_PROPERTY_OVERRIDES += \
+    hwui.render_dirty_regions=false
+
+# Misc properties
+PRODUCT_PROPERTY_OVERRIDES += \
+    pm.sleep_mode=1
+
+# Mdpi assets
 PRODUCT_AAPT_CONFIG := normal mdpi
 PRODUCT_AAPT_PREF_CONFIG := mdpi

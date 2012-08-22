@@ -5,6 +5,5 @@ ifeq ($(TARGET_DEVICE),pico)
 #disable audio for now(compile errors)	 $(LOCAL_PATH)/libaudio/Android.mk \
 #	 $(LOCAL_PATH)/libacoustic/Android.mk \
 #	 $(LOCAL_PATH)/libcamera/Android.mk \
-#        $(LOCAL_PATH)/brcm_patchram_plus/Android.mk  
      include $(subdir_makefiles)
 endif
