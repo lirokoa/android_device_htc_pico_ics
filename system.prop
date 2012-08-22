@@ -128,9 +128,6 @@ ro.media.enc.vid.m4v.fps       = 1,30
 #
 ro.media.dec.jpeg.memcap 	= 20000000
 
-# try to disable proximity sensor in call by default
-#gsm.proximity.enable=false
-
 # Release Bluetooth HW/SW information
 ro.bt.chipset	= Broadcom BCM4329-B1
 ro.bt.version	= Bluetooth 2.1 + EDR
@@ -138,7 +135,6 @@ ro.bt.stack	= Broadcom BTL-A
 ro.bt.stack.version	= 2.2.017
 #0x10000010010100100000011 represent bt profile list
 ro.bt.profiles	= 4270339
-
 
 # Properties of BTLA stack
 service.brcm.bt.activation = 0
