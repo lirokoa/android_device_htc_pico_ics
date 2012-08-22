@@ -49,7 +49,7 @@ PRODUCT_PACKAGES += \
     
 # Camera
 PRODUCT_PACKAGES += \
-    camera.msm7x27a    
+    camera.msm7x27a \
     LegacyCamera 
 
 # Init
