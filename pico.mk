@@ -44,6 +44,9 @@ PRODUCT_PACKAGES += \
     sensors.msm7x27a \
     gps.pico \   
     librpc \
+
+#Misc
+PRODUCT_COPY_FILES += \
     com.android.future.usb.accessory
     
 # Camera
