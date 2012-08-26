@@ -99,8 +99,6 @@ ro.ril.disable.power.collapse=0
 # For PDP overlap problem
 ro.ril.avoid.pdp.overlap = 1
 
-video.accelerate.hw=1
-
 #
 # This file describes the media capabilities and profiles
 # using system properties.
@@ -151,3 +149,5 @@ service.brcm.bt.avrcp_toggle = 1
 service.brcm.bt.local_name =
 
 persist.sys.usb.config=mass_storage,adb
+
+com.qc.hardware=true
