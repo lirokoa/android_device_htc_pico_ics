@@ -27,8 +27,8 @@ PRODUCT_PACKAGES += \
     
 # Graphics 
 PRODUCT_PACKAGES += \
-    gralloc.msm7x27a \
     copybit.msm7x27a \
+    gralloc.msm7x27a \
     hwcomposer.msm7x27a \
     libtilerenderer \
     libQcomUI
@@ -50,7 +50,7 @@ PRODUCT_PACKAGES += \
     
 # Camera
 PRODUCT_PACKAGES += \
-    camera.msm7x27a    
+    camera.default    
     
 # Misc
 PRODUCT_PACKAGES += \
@@ -80,18 +80,27 @@ PRODUCT_COPY_FILES += \
     device/htc/pico/files/ueventd.pico.rc:root/ueventd.pico.rc \
     device/htc/pico/files/init.pico.usb.rc:root/init.pico.usb.rc \
     
-## Camera
-#PRODUCT_COPY_FILES += \
-#    device/samsung/trebon/prebuilt/system/lib/hw/camera.trebon.so:system/lib/hw/camera.trebon.so \
-#    device/samsung/trebon/prebuilt/system/lib/libcamera.so:system/lib/libcamera.so \
-#    device/samsung/trebon/prebuilt/system/lib/lib/system/libcamera_client.so:system/lib/libcamera_client.so \
-#    device/samsung/trebon/prebuilt/system/lib/lib/system/libcameraservice.so:system/lib/libcameraservice.so \
-#    device/samsung/trebon/prebuilt/system/lib/libmm-adspsvc.so:system/lib/libmm-adspsvc.so \
-#    device/samsung/trebon/prebuilt/system/lib/libmmgsdilib.so:system/lib/libmmgsdilib.so \
-#    device/samsung/trebon/prebuilt/system/lib/libmmipl.so:system/lib/libmmipl.so \
-#    device/samsung/trebon/prebuilt/system/lib/libmmjpeg.so:system/lib/libmmjpeg.so \
-#    device/samsung/trebon/prebuilt/system/lib/libmm-omxcore.so:system/lib/libmm-omxcore.so \
-#    device/samsung/trebon/prebuilt/system/lib/liboemcamera.so:system/lib/liboemcamera.so    
+# Camera
+PRODUCT_COPY_FILES += \
+    vendor/htc/pico/proprietary/lib/hw/camera.default.so:system/lib/hw/camera.default.so \
+    vendor/htc/pico/proprietary/lib/liboemcamera.so:system/lib/liboemcamera.so \
+    vendor/htc/pico/proprietary/lib/libmmipl.so:system/lib/libmmipl.so \
+    vendor/htc/pico/proprietary/lib/libmmjpeg.so:system/lib/libmmjpeg.so \
+    vendor/htc/pico/proprietary/lib/libcameraface.so:system/lib/libcameraface.so \
+    vendor/htc/pico/proprietary/lib/libcamerapp.so:system/lib/libcamerapp.so \
+    vendor/htc/pico/proprietary/lib/libOlaEngine.so:system/lib/libOlaEngine.so \
+    vendor/htc/pico/proprietary/lib/libchromatix_mt9t013_default_video.so:system/lib/libchromatix_mt9t013_default_video.so \
+    vendor/htc/pico/proprietary/lib/libchromatix_mt9t013_preview.so:system/lib/libchromatix_mt9t013_preview.so \
+    vendor/htc/pico/proprietary/bin/awb_camera:system/bin/awb_camera \
+    vendor/htc/pico/proprietary/bin/lsc_camera:system/bin/lsc_camera \
+    vendor/htc/pico/proprietary/bin/mm-qcamera-daemon:system/bin/mm-qcamera-daemon 
+    
+# OMX
+PRODUCT_COPY_FILES += \
+    vendor/htc/pico/proprietary/lib/libmm-adspsvc.so:system/lib/libmm-adspsvc.so \
+    vendor/htc/pico/proprietary/lib/libOmxH264Dec.so:system/lib/libOmxH264Dec.so \
+    vendor/htc/pico/proprietary/lib/libOmxMpeg4Dec.so:system/lib/libOmxMpeg4Dec.so \
+    vendor/htc/pico/proprietary/lib/libOmxVidEnc.so:system/lib/libOmxVidEnc.so 
     
 # Set usb type
 ADDITIONAL_DEFAULT_PROPERTIES += \
@@ -171,7 +180,6 @@ PRODUCT_COPY_FILES += \
 PRODUCT_COPY_FILES += \
     vendor/htc/pico/proprietary/etc/firmware/yamato_pfp.fw:system/etc/firmware/yamato_pfp.fw \
     vendor/htc/pico/proprietary/etc/firmware/yamato_pm4.fw:system/etc/firmware/yamato_pm4.fw \
-    vendor/htc/pico/proprietary/lib/libC2D2.so:system/lib/libC2D2.so \
     vendor/htc/pico/proprietary/lib/libgsl.so:system/lib/libgsl.so \
     vendor/htc/pico/proprietary/lib/libOpenVG.so:system/lib/libOpenVG.so \
     vendor/htc/pico/proprietary/lib/libsc-a2xx.so:system/lib/libsc-a2xx.so \
@@ -181,16 +189,11 @@ PRODUCT_COPY_FILES += \
     vendor/htc/pico/proprietary/lib/egl/libGLESv2_adreno200.so:system/lib/egl/libGLESv2_adreno200.so \
     vendor/htc/pico/proprietary/lib/egl/libq3dtools_adreno200.so:system/lib/egl/libq3dtools_adreno200.so 
 
-# Camera
-# Don't work on 4.0.4 because from 2.3.5! An
 
 # RIL
 PRODUCT_COPY_FILES += \
     vendor/htc/pico/proprietary/lib/libhtc_ril.so:system/lib/libhtc_ril.so \
     
-#CHROMATIX
-# Don't work on 4.0.4 because from 2.3.5! We don't need this!
-
 # Don't work on 4.0.4 because from 2.3.5! You need to compile it with yourself
 PRODUCT_COPY_FILES += \
     vendor/htc/pico/proprietary/etc/gps.conf:system/etc \
@@ -225,11 +228,6 @@ PRODUCT_COPY_FILES += \
     device/htc/pico/prebuilt/usr/idc/himax-touchscreen.idc:system/usr/idc/himax-touchscreen.idc \
     device/htc/pico/prebuilt/usr/idc/synaptics-rmi-touchscreen.idc:system/usr/idc/synaptics-rmi-touchscreen.idc \
     
-
-
-# Camera 
-# Don't work on 4.0.4 because from 2.3.5! Need open source drivers for ics from qualcomm or need hack for 2.3.5 proprietary
-
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.product.camera=pico \
     debug.camcorder.disablemeta=1 \
@@ -250,6 +248,5 @@ PRODUCT_PROPERTY_OVERRIDES += \
     media.stagefright.enable-aac=true \
     media.stagefright.enable-qcp=true
     
-PRODUCT_LOCALES := en_GB
 PRODUCT_AAPT_CONFIG := normal mdpi
 PRODUCT_AAPT_PREF_CONFIG := mdpi
