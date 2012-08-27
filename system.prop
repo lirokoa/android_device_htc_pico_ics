@@ -51,6 +51,9 @@ ro.ril.update.acoustic.table = 1
 # Modify MMS APN retry timer from 5s to 2s.
 ro.gsm.2nd_data_retry_config = max_retries=3, 5000, 5000, 5000
 
+# enable dithering (always)
+persist.sys.use_dithering=2
+
 ro.ril.htcmaskw1.bitmask = 4294967295
 ro.ril.htcmaskw1 = 14449
 # Time between scans in seconds. Keep it high to minimize battery drain.
