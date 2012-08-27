@@ -14,7 +14,6 @@
 #
 
 USE_CAMERA_STUB := true
-TARGET_DISABLE_ARM_PIE := true
 
 #Jb Libhwcomposer
 TARGET_NO_HW_VSYNC := true
