@@ -1,5 +1,5 @@
 # Prepare for new BootAnimation
-TARGET_BOOTANIMATION_NAME := vertical-320
+TARGET_BOOTANIMATION_NAME := vertical-320x480
 
 # Include configs
 $(call inherit-product, vendor/cm/config/gsm.mk)
@@ -7,7 +7,7 @@ $(call inherit-product, vendor/cm/config/common_mini_phone.mk)
 $(call inherit-product, device/common/gps/gps_eu_supl.mk)
 $(call inherit-product, device/htc/pico/pico.mk)
 
-PRODUCT_NAME := cm_pico
+PRODUCT_NAME := pico
 PRODUCT_BRAND := htc_europe
 PRODUCT_DEVICE := pico
 PRODUCT_MODEL := HTC Explorer A310
