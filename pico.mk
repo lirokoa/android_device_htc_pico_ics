@@ -17,8 +17,9 @@ PRODUCT_PACKAGES += \
     libstagefrighthw \
     libmm-omxcore \
     libOmxCore \
-    libOmxVidEnc 
-    
+    libOmxVidEnc \
+    libdivxdrmdecrypt
+  
 # Graphics 
 PRODUCT_PACKAGES += \
     gralloc.msm7x27a \
@@ -28,6 +29,8 @@ PRODUCT_PACKAGES += \
     libgenlock \
     liboverlay \
     libQcomUI \
+    libmemalloc \
+    libopencorehw
     
 # Audio
 PRODUCT_PACKAGES += \
@@ -52,6 +55,11 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     camera.msm7x27a \
     LegacyCamera 
+
+# Filesystem management tools
+PRODUCT_PACKAGES += \
+    make_ext4fs \
+    setup_fs
 
 # Init
 PRODUCT_COPY_FILES += \
@@ -83,6 +91,10 @@ PRODUCT_COPY_FILES += \
 PRODUCT_COPY_FILES += \
     device/htc/pico/prebuilt/bcm4330.ko:system/lib/modules/bcm4330.ko \
     device/htc/pico/prebuilt/kineto_gan.ko:system/lib/modules/kineto_gan.ko 
+
+# Releasetools
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/releasetools/extras.sh:system/bin/extras.sh
 
 # Wifi
 PRODUCT_COPY_FILES += \
@@ -206,3 +218,4 @@ PRODUCT_MODEL := HTC Explorer A310
 # Mdpi assets
 PRODUCT_AAPT_CONFIG := normal mdpi
 PRODUCT_AAPT_PREF_CONFIG := mdpi
+PRODUCT_BUILD_PROP_OVERRIDES += BUILD_UTC_DATE=0

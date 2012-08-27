@@ -168,3 +168,6 @@ TARGET_NO_INITLOGO := true
 
 # Touch screen compatibility for ICS
 BOARD_USE_LEGACY_TOUCHSCREEN := true
+
+# OTA script
+TARGET_RELEASETOOL_OTA_FROM_TARGET_SCRIPT := device/htc/pico/releasetools/ota_from_target_files
