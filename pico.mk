@@ -199,9 +199,6 @@ PRODUCT_PROPERTY_OVERRIDES += \
 PRODUCT_PROPERTY_OVERRIDES += \
     pm.sleep_mode=1
 
-# Full-featured build of the Open-Source
-$(call inherit-product, build/target/product/full.mk)
-
 PRODUCT_NAME := pico
 PRODUCT_DEVICE := pico
 PRODUCT_MODEL := HTC Explorer A310
