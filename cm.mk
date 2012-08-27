@@ -7,7 +7,10 @@ $(call inherit-product, vendor/cm/config/common_mini_phone.mk)
 $(call inherit-product, device/common/gps/gps_eu_supl.mk)
 $(call inherit-product, device/htc/pico/pico.mk)
 
-PRODUCT_NAME := pico
+# Full-featured build of the Open-Source
+$(call inherit-product, build/target/product/full.mk)
+
+PRODUCT_NAME := cm_pico
 PRODUCT_BRAND := htc_europe
 PRODUCT_DEVICE := pico
 PRODUCT_MODEL := HTC Explorer A310
