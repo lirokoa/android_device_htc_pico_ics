@@ -26,7 +26,6 @@
 #include <hardware_legacy/AudioHardwareInterface.h>
 #include <hardware_legacy/AudioSystemLegacy.h>
 
-
 namespace android_audio_legacy {
 
 extern "C" {
@@ -82,11 +81,7 @@ static uint32_t out_get_channels(const struct audio_stream *stream)
 {
     const struct qcom_stream_out *out =
         reinterpret_cast<const struct qcom_stream_out *>(stream);
-#ifdef USES_AUDIO_LEGACY
-    return out->qcom_out->channels() >> 2;
-#else
     return out->qcom_out->channels();
-#endif
 }
 
 static int out_get_format(const struct audio_stream *stream)
@@ -350,6 +345,14 @@ static int adev_set_master_volume(struct audio_hw_device *dev, float volume)
     return qadev->hwif->setMasterVolume(volume);
 }
 
+#ifdef HAVE_FM_RADIO
+static int adev_set_fm_volume(struct audio_hw_device *dev, float volume)
+{
+    struct qcom_audio_device *qadev = to_ladev(dev);
+    return qadev->hwif->setFmVolume(volume);
+}
+#endif
+
 static int adev_set_mode(struct audio_hw_device *dev, int mode)
 {
     struct qcom_audio_device *qadev = to_ladev(dev);
@@ -410,11 +413,6 @@ static int adev_open_output_stream(struct audio_hw_device *dev,
 
     out->qcom_out = qadev->hwif->openOutputStream(devices, format, channels,
                                                     sample_rate, &status);
-
-#ifdef USES_AUDIO_LEGACY
-    *channels = *channels >> 2;
-#endif
-
     if (!out->qcom_out) {
         ret = status;
         goto err_open;
@@ -562,6 +560,9 @@ static int qcom_adev_open(const hw_module_t* module, const char* name,
     qadev->device.init_check = adev_init_check;
     qadev->device.set_voice_volume = adev_set_voice_volume;
     qadev->device.set_master_volume = adev_set_master_volume;
+#ifdef HAVE_FM_RADIO
+    qadev->device.set_fm_volume = adev_set_fm_volume;
+#endif
     qadev->device.set_mode = adev_set_mode;
     qadev->device.set_mic_mute = adev_set_mic_mute;
     qadev->device.get_mic_mute = adev_get_mic_mute;
@@ -611,4 +612,4 @@ struct qcom_audio_module HAL_MODULE_INFO_SYM = {
 
 }; // extern "C"
 
-}; // namespace android_audio_legacy
+}; // namespace android
