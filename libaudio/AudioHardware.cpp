@@ -40,7 +40,7 @@ extern "C" {
 //#include <media/AudioRecord.h>
 
 
-#define COMBO_DEVICE_SUPPORTED // Headset speaker combo device not supported on this target
+#define COMBO_DEVICE_SUPPORTED 1
 #define DUALMIC_KEY "dualmic_enabled"
 #define TTY_MODE_KEY "tty_mode"
 
@@ -166,6 +166,7 @@ AudioHardware::AudioHardware() :
                 CHECK_FOR(BT);
                 CHECK_FOR(BT_EC_OFF);
                 CHECK_FOR(HEADSET);
+		CHECK_FOR(NO_MIC_HEADSET);
                 CHECK_FOR(STEREO_HEADSET_AND_SPEAKER);
                 CHECK_FOR(IN_S_SADC_OUT_HANDSET);
                 CHECK_FOR(IN_S_SADC_OUT_SPEAKER_PHONE);
@@ -1090,8 +1091,8 @@ static int msm72xx_enable_postproc(bool state)
         }
    }
 
-   close(fd);
-   return 0;
+   close(fd); 
+   return 0; 
 }
 
 static unsigned calculate_audpre_table_index(unsigned index)
@@ -1340,12 +1341,11 @@ status_t AudioHardware::doRouting(AudioStreamInMSM72xx *input)
     uint32_t outputDevices = mOutput->devices();
     status_t ret = NO_ERROR;
     int new_snd_device = -1;
-    int new_post_proc_feature_mask = 0;
+    int new_post_proc_feature_mask = (ADRC_DISABLE | EQ_DISABLE | RX_IIR_DISABLE);
     bool enableDgtlFmDriver = false;
 
-
-    //int (*msm72xx_enable_audpp)(int);
-    //msm72xx_enable_audpp = (int (*)(int))::dlsym(acoustic, "msm72xx_enable_audpp");
+   //int (*msm72xx_enable_audpp)(int);
+   // msm72xx_enable_audpp = (int (*)(int))::dlsym(acoustic, "msm72xx_enable_audpp");
 
     if (input != NULL) {
         uint32_t inputDevice = input->devices();
@@ -1385,7 +1385,9 @@ status_t AudioHardware::doRouting(AudioStreamInMSM72xx *input)
     }
 
     // if inputDevice == 0, restore output routing
-    if (new_snd_device == -1) {
+    if (new_snd_device == -1) 
+    {
+	LOGI("do output routing device %x\n", outputDevices);
         if (outputDevices & (outputDevices - 1)) {
             if ((outputDevices & AudioSystem::DEVICE_OUT_SPEAKER) == 0) {
                 LOGV("Hardware does not support requested route combination (%#X),"
@@ -1416,6 +1418,9 @@ status_t AudioHardware::doRouting(AudioStreamInMSM72xx *input)
             LOGI("Routing audio to No microphone Wired Headset and Speaker (%d,%x)\n", mMode, outputDevices);
             new_snd_device = SND_DEVICE_STEREO_HEADSET_AND_SPEAKER;
             new_post_proc_feature_mask = (ADRC_ENABLE | EQ_ENABLE | RX_IIR_ENABLE | MBADRC_ENABLE);
+	} else if (outputDevices & AudioSystem::DEVICE_OUT_WIRED_HEADPHONE){
+	    LOGI("Routing audio to No microphone Wired Headset (%d,%x)\n", mMode, outputDevices);
+            new_snd_device = SND_DEVICE_NO_MIC_HEADSET;
 #endif
 #if HAVE_FM_RADIO
         } else if ((outputDevices & AudioSystem::DEVICE_OUT_WIRED_HEADSET) &&
@@ -1463,41 +1468,47 @@ status_t AudioHardware::doRouting(AudioStreamInMSM72xx *input)
         }
     }
 
-    if (mDualMicEnabled && mMode == AudioSystem::MODE_IN_CALL) {
-        if (new_snd_device == SND_DEVICE_HANDSET) {
+    if (mDualMicEnabled && mMode == AudioSystem::MODE_IN_CALL) 
+    {
+        if (new_snd_device == SND_DEVICE_HANDSET) 
+	{
             LOGI("Routing audio to handset with DualMike enabled\n");
             new_snd_device = SND_DEVICE_IN_S_SADC_OUT_HANDSET;
-        } else if (new_snd_device == SND_DEVICE_SPEAKER) {
+        } 
+        else 
+	  if (new_snd_device == SND_DEVICE_SPEAKER) 
+	  {
             LOGI("Routing audio to speakerphone with DualMike enabled\n");
             new_snd_device = SND_DEVICE_IN_S_SADC_OUT_SPEAKER_PHONE;
-        }
+	  }
     }
 
 #if HAVE_FM_RADIO
-    if ((mFmFd == -1) && enableDgtlFmDriver ) {
+    if ((mFmFd == -1) && enableDgtlFmDriver ) 
+    {
         enableFM();
-    } else if ((mFmFd != -1) && !enableDgtlFmDriver ) {
+    } 
+    else 
+      if ((mFmFd != -1) && !enableDgtlFmDriver ) 
+      {
         disableFM();
-    }
+      }
 #endif
 
     if((outputDevices  == 0) && (FmA2dpStatus == true))
        new_snd_device = SND_DEVICE_FM_DIGITAL_BT_A2DP_HEADSET;
 
-    if (new_snd_device != -1 && new_snd_device != mCurSndDevice) {
+    if (new_snd_device != -1 && new_snd_device != mCurSndDevice) 
+    {
         ret = doAudioRouteOrMute(new_snd_device);
 
-       //disable post proc first for previous session
-       if(playback_in_progress)
-           msm72xx_enable_postproc(false);
-
-       //enable post proc for new device
+	/*if ((*msm72xx_enable_audpp) == 0 ) 
+            LOGE("Could not open msm72xx_enable_audpp()");
+        else
+            msm72xx_enable_audpp(new_post_proc_feature_mask);*/
+      
        snd_device = new_snd_device;
        post_proc_feature_mask = new_post_proc_feature_mask;
-
-       if(playback_in_progress)
-           msm72xx_enable_postproc(true);
-
        mCurSndDevice = new_snd_device;
     }
 
@@ -1730,7 +1741,7 @@ ssize_t AudioHardware::AudioStreamOutMSM72xx::write(const void* buffer, size_t b
             ioctl(mFd, AUDIO_START, 0);
             playback_in_progress = true;
             //enable post processing
-            msm72xx_enable_postproc(true);
+            //msm72xx_enable_postproc(true);
         }
     }
     return bytes;
@@ -1751,7 +1762,7 @@ status_t AudioHardware::AudioStreamOutMSM72xx::standby()
     status_t status = NO_ERROR;
     if (!mStandby && mFd >= 0) {
         //disable post processing
-        msm72xx_enable_postproc(false);
+        //msm72xx_enable_postproc(false);
         playback_in_progress = false;
         ::close(mFd);
         mFd = -1;
