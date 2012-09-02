@@ -35,9 +35,8 @@ PRODUCT_PACKAGES += \
     
 # Audio
 PRODUCT_PACKAGES += \
-    libacoustic \
     audio.primary.msm7x27a \
-    audio_policy.msm7x27a \
+    audio_policy.msm7x27a\
     audio.a2dp.default \
     libaudioutils
 
@@ -97,10 +96,15 @@ PRODUCT_COPY_FILES += \
     
 # OMX
 PRODUCT_COPY_FILES += \
+    vendor/htc/pico/proprietary/lib/libmmosal.so:system/lib/libmmosal.so \
+    vendor/htc/pico/proprietary/lib/libmmparser.so:system/lib/libmmparser.so \
+    vendor/htc/pico/proprietary/lib/libmmparser_divxdrmlib.so:system/lib/libmmparser_divxdrmlib.so \
+    vendor/htc/pico/proprietary/lib/libdivxdrmdecrypt.so:system/lib/libdivxdrmdecrypt.so \
     vendor/htc/pico/proprietary/lib/libmm-adspsvc.so:system/lib/libmm-adspsvc.so \
     vendor/htc/pico/proprietary/lib/libOmxH264Dec.so:system/lib/libOmxH264Dec.so \
     vendor/htc/pico/proprietary/lib/libOmxMpeg4Dec.so:system/lib/libOmxMpeg4Dec.so \
-    vendor/htc/pico/proprietary/lib/libOmxVidEnc.so:system/lib/libOmxVidEnc.so 
+    vendor/htc/pico/proprietary/lib/libOmxVidEnc.so:system/lib/libOmxVidEnc.so \
+    
     
 # Set usb type
 ADDITIONAL_DEFAULT_PROPERTIES += \
@@ -149,14 +153,13 @@ PRODUCT_COPY_FILES += \
 # Need all audio filters
 PRODUCT_COPY_FILES += \
     device/htc/pico/prebuilt/etc/AudioFilter.csv:system/etc/AudioFilter.csv \
-    device/htc/pico/files/etc/media_profiles.xml:system/etc/media_profiles.xml \
     device/htc/pico/prebuilt/etc/AudioBTID.csv:system/etc/AudioBTID.csv \
     device/htc/pico/prebuilt/etc/AudioPara4.csv:system/etc/AudioPara4.csv \
     device/htc/pico/prebuilt/etc/AudioPara4_WB.csv:system/etc/AudioPara4_WB.csv \
     device/htc/pico/prebuilt/etc/AudioPreProcess.csv:system/etc/AudioPreProcess.csv \
     vendor/htc/pico/proprietary/lib/libaudioeq.so:system/lib/libaudioeq.so \
     vendor/htc/pico/proprietary/lib/libhtc_acoustic.so:system/lib/libhtc_acoustic.so \
-
+    
 # Device permissions
 PRODUCT_COPY_FILES += \
     frameworks/base/data/etc/handheld_core_hardware.xml:system/etc/permissions/handheld_core_hardware.xml \
@@ -209,7 +212,6 @@ PRODUCT_COPY_FILES += \
 
 # Bluetooth
 PRODUCT_COPY_FILES += \
-    device/htc/pico/prebuilt/init.qcom.bt.sh:system/bin/init.qcom.bt.sh \
     vendor/htc/pico/proprietary/etc/firmware/BCM4330B1_002.001.003.0221.0228.hcd:system/etc/firmware/BCM4330B1_002.001.003.0221.0228.hcd \
 
 # Keylayouts
@@ -239,14 +241,6 @@ PRODUCT_PROPERTY_OVERRIDES += \
     dalvik.vm.dexopt-flags=m=y \
     ro.telephony.call_ring.multiple=false \
     ro.vold.umsdirtyratio=20
-
-PRODUCT_PROPERTY_OVERRIDES += \
-    media.stagefright.enable-player=true \
-    media.stagefright.enable-meta=false \
-    media.stagefright.enable-scan=false \
-    media.stagefright.enable-http=true \
-    media.stagefright.enable-aac=true \
-    media.stagefright.enable-qcp=true
     
 PRODUCT_AAPT_CONFIG := normal mdpi
 PRODUCT_AAPT_PREF_CONFIG := mdpi
