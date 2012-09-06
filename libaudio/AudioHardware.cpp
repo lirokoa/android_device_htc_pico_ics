@@ -120,10 +120,6 @@ AudioHardware::AudioHardware() :
     mOutput(0), mBluetoothVGS(false), mSndEndpoints(NULL), mCurSndDevice(-1),
     mDualMicEnabled(false), mFmFd(-1), FmA2dpStatus(-1)
 {
-  /* if (get_audpp_filter() == 0) {
-           audpp_filter_inited = true;
-   } */
-  
    int (*set_acoustic_parameters)();
   
    acoustic = ::dlopen("/system/lib/libhtc_acoustic.so", RTLD_NOW);
@@ -183,7 +179,7 @@ AudioHardware::AudioHardware() :
         }
         else LOGE("Could not retrieve number of MSM SND endpoints.");
 
-        int AUTO_VOLUME_ENABLED = 1; // setting enabled as default
+        int AUTO_VOLUME_ENABLED = 0; // setting enabled as default
 
         static const char *const path = "/system/etc/AutoVolumeControl.txt";
         int txtfd;
@@ -951,130 +947,13 @@ static int get_audpp_filter(void)
 }
 
 static int msm72xx_enable_postproc(bool state)
-{
-    int fd;
-    int device_id=0;
-
-    if (!audpp_filter_inited)
-    {
-        LOGE("Parsing error in AudioFilter.csv.");
-        return -EINVAL;
-    }
-    if(snd_device < 0) {
-        LOGE("Enabling/Disabling post proc features for device: %d", snd_device);
-        return -EINVAL;
-    }
-
-    if(snd_device == SND_DEVICE_SPEAKER)
-    {
-        device_id = 0;
-        LOGI("set device to SND_DEVICE_SPEAKER device_id=0");
-    }
-    if(snd_device == SND_DEVICE_HANDSET)
-    {
-        device_id = 1;
-        LOGI("set device to SND_DEVICE_HANDSET device_id=1");
-    }
-    if(snd_device == SND_DEVICE_HEADSET)
-    {
-        device_id = 2;
-        LOGI("set device to SND_DEVICE_HEADSET device_id=2");
-    }
-
-    fd = open(PCM_CTL_DEVICE, O_RDWR);
-    if (fd < 0) {
-        LOGE("Cannot open PCM Ctl device");
-        return -EPERM;
-    }
-
-    if(mbadrc_filter_exists[device_id] && state)
-    {
-        LOGV("MBADRC Enabled");
-        post_proc_feature_mask &= ADRC_DISABLE;
-        if ((mbadrc_flag[device_id] == 0) && (post_proc_feature_mask & MBADRC_ENABLE))
-        {
-            LOGV("MBADRC Disable");
-            post_proc_feature_mask &= MBADRC_DISABLE;
-        }
-        else if(post_proc_feature_mask & MBADRC_ENABLE)
-        {
-            LOGV("MBADRC Enabled %d", post_proc_feature_mask);
-
-            if (ioctl(fd, AUDIO_SET_MBADRC, &mbadrc_cfg[device_id]) < 0)
-            {
-                LOGE("set mbadrc filter error");
-            }
-        }
-    }
-    else if (adrc_filter_exists[device_id] && state)
-    {
-        post_proc_feature_mask &= MBADRC_DISABLE;
-        LOGV("ADRC Enabled %d", post_proc_feature_mask);
-
-        if (adrc_flag[device_id] == 0 && (post_proc_feature_mask & ADRC_ENABLE))
-            post_proc_feature_mask &= ADRC_DISABLE;
-        else if(post_proc_feature_mask & ADRC_ENABLE)
-        {
-            LOGI("ADRC Filter ADRC FLAG = %02x.", adrc_flag[device_id]);
-            LOGI("ADRC Filter COMP THRESHOLD = %02x.", adrc_cfg[device_id].adrc_params[0]);
-            LOGI("ADRC Filter COMP SLOPE = %02x.", adrc_cfg[device_id].adrc_params[1]);
-            LOGI("ADRC Filter COMP RMS TIME = %02x.", adrc_cfg[device_id].adrc_params[2]);
-            LOGI("ADRC Filter COMP ATTACK[0] = %02x.", adrc_cfg[device_id].adrc_params[3]);
-            LOGI("ADRC Filter COMP ATTACK[1] = %02x.", adrc_cfg[device_id].adrc_params[4]);
-            LOGI("ADRC Filter COMP RELEASE[0] = %02x.", adrc_cfg[device_id].adrc_params[5]);
-            LOGI("ADRC Filter COMP RELEASE[1] = %02x.", adrc_cfg[device_id].adrc_params[6]);
-            LOGI("ADRC Filter COMP DELAY = %02x.", adrc_cfg[device_id].adrc_params[7]);
-            if (ioctl(fd, AUDIO_SET_ADRC, &adrc_cfg[device_id]) < 0)
-            {
-                LOGE("set adrc filter error.");
-            }
-        }
-    }
-    else
-    {
-        LOGV("MBADRC and ADRC Disabled");
-        post_proc_feature_mask &= (MBADRC_DISABLE | ADRC_DISABLE);
-    }
-
-    if (eq_flag[device_id] == 0 && (post_proc_feature_mask & EQ_ENABLE))
-        post_proc_feature_mask &= EQ_DISABLE;
-    else if ((post_proc_feature_mask & EQ_ENABLE) && state)
-    {
-        LOGI("Setting EQ Filter");
-        if (ioctl(fd, AUDIO_SET_EQ, &eqalizer[device_id]) < 0) {
-            LOGE("set Equalizer error.");
-        }
-    }
-
-    if (rx_iir_flag[device_id] == 0 && (post_proc_feature_mask & RX_IIR_ENABLE))
-        post_proc_feature_mask &= RX_IIR_DISABLE;
-    else if ((post_proc_feature_mask & RX_IIR_ENABLE)&& state)
-    {
-        LOGI("IIR Filter FLAG = %02x.", rx_iir_flag[device_id]);
-        LOGI("IIR NUMBER OF BANDS = %02x.", iir_cfg[device_id].num_bands);
-        LOGI("IIR Filter N1 = %02x.", iir_cfg[device_id].iir_params[0]);
-        LOGI("IIR Filter N2 = %02x.",  iir_cfg[device_id].iir_params[1]);
-        LOGI("IIR Filter N3 = %02x.",  iir_cfg[device_id].iir_params[2]);
-        LOGI("IIR Filter N4 = %02x.",  iir_cfg[device_id].iir_params[3]);
-        LOGI("IIR FILTER M1 = %02x.",  iir_cfg[device_id].iir_params[24]);
-        LOGI("IIR FILTER M2 = %02x.", iir_cfg[device_id].iir_params[25]);
-        LOGI("IIR FILTER M3 = %02x.",  iir_cfg[device_id].iir_params[26]);
-        LOGI("IIR FILTER M4 = %02x.",  iir_cfg[device_id].iir_params[27]);
-        LOGI("IIR FILTER M16 = %02x.",  iir_cfg[device_id].iir_params[39]);
-        LOGI("IIR FILTER SF1 = %02x.",  iir_cfg[device_id].iir_params[40]);
-         if (ioctl(fd, AUDIO_SET_RX_IIR, &iir_cfg[device_id]) < 0)
-        {
-            LOGE("set rx iir filter error.");
-        }
-    }
-
+{   
+   int (*msm72xx_enable_audpp)(int);
+   msm72xx_enable_audpp = (int (*)(int))::dlsym(acoustic, "msm72xx_enable_audpp");
+   
     if(state){
         LOGI("Enabling post proc features with mask 0x%04x", post_proc_feature_mask);
-        if (ioctl(fd, AUDIO_ENABLE_AUDPP, &post_proc_feature_mask) < 0) {
-            LOGE("enable audpp error");
-            close(fd);
-            return -EPERM;
-        }
+        msm72xx_enable_audpp(post_proc_feature_mask);
     } else{
         int disable_mask = 0;
 
@@ -1084,14 +963,9 @@ static int msm72xx_enable_postproc(bool state)
         if(post_proc_feature_mask & RX_IIR_ENABLE) disable_mask &= RX_IIR_DISABLE;
 
         LOGI("disabling post proc features with mask 0x%04x", disable_mask);
-        if (ioctl(fd, AUDIO_ENABLE_AUDPP, &disable_mask) < 0) {
-            LOGE("enable audpp error");
-            close(fd);
-            return -EPERM;
-        }
+        msm72xx_enable_audpp(disable_mask);
    }
-
-   close(fd); 
+   
    return 0; 
 }
 
@@ -1341,11 +1215,11 @@ status_t AudioHardware::doRouting(AudioStreamInMSM72xx *input)
     uint32_t outputDevices = mOutput->devices();
     status_t ret = NO_ERROR;
     int new_snd_device = -1;
-    int new_post_proc_feature_mask = (ADRC_DISABLE | EQ_DISABLE | RX_IIR_DISABLE);
+    int new_post_proc_feature_mask = 0;
     bool enableDgtlFmDriver = false;
 
-   //int (*msm72xx_enable_audpp)(int);
-   // msm72xx_enable_audpp = (int (*)(int))::dlsym(acoustic, "msm72xx_enable_audpp");
+   int (*msm72xx_enable_audpp)(int);
+   msm72xx_enable_audpp = (int (*)(int))::dlsym(acoustic, "msm72xx_enable_audpp");
 
     if (input != NULL) {
         uint32_t inputDevice = input->devices();
@@ -1417,10 +1291,7 @@ status_t AudioHardware::doRouting(AudioStreamInMSM72xx *input)
                    (outputDevices & AudioSystem::DEVICE_OUT_SPEAKER)) {
             LOGI("Routing audio to No microphone Wired Headset and Speaker (%d,%x)\n", mMode, outputDevices);
             new_snd_device = SND_DEVICE_STEREO_HEADSET_AND_SPEAKER;
-            new_post_proc_feature_mask = (ADRC_ENABLE | EQ_ENABLE | RX_IIR_ENABLE | MBADRC_ENABLE);
-	} else if (outputDevices & AudioSystem::DEVICE_OUT_WIRED_HEADPHONE){
-	    LOGI("Routing audio to No microphone Wired Headset (%d,%x)\n", mMode, outputDevices);
-            new_snd_device = SND_DEVICE_NO_MIC_HEADSET;
+            new_post_proc_feature_mask = (ADRC_ENABLE | EQ_ENABLE | RX_IIR_ENABLE | MBADRC_ENABLE);		
 #endif
 #if HAVE_FM_RADIO
         } else if ((outputDevices & AudioSystem::DEVICE_OUT_WIRED_HEADSET) &&
@@ -1456,7 +1327,11 @@ status_t AudioHardware::doRouting(AudioStreamInMSM72xx *input)
         } else if (outputDevices & AudioSystem::DEVICE_OUT_WIRED_HEADSET) {
             LOGI("Routing audio to Wired Headset\n");
             new_snd_device = SND_DEVICE_HEADSET;
-            new_post_proc_feature_mask = (ADRC_ENABLE | EQ_ENABLE | RX_IIR_ENABLE | MBADRC_ENABLE);
+            //new_post_proc_feature_mask = (ADRC_ENABLE | EQ_ENABLE | RX_IIR_ENABLE | MBADRC_ENABLE);
+	} else if (outputDevices & AudioSystem::DEVICE_OUT_WIRED_HEADPHONE){
+	    LOGI("Routing audio to No microphone Wired Headset (%d,%x)\n", mMode, outputDevices);
+	    new_snd_device = SND_DEVICE_NO_MIC_HEADSET;
+	    //new_post_proc_feature_mask = (MBADRC_DISABLE | RX_IIR_DISABLE | EQ_DISABLE | ADRC_DISABLE);
         } else if (outputDevices & AudioSystem::DEVICE_OUT_SPEAKER) {
             LOGI("Routing audio to Speakerphone\n");
             new_snd_device = SND_DEVICE_SPEAKER;
@@ -1500,15 +1375,17 @@ status_t AudioHardware::doRouting(AudioStreamInMSM72xx *input)
 
     if (new_snd_device != -1 && new_snd_device != mCurSndDevice) 
     {
-        ret = doAudioRouteOrMute(new_snd_device);
-
-	/*if ((*msm72xx_enable_audpp) == 0 ) 
-            LOGE("Could not open msm72xx_enable_audpp()");
-        else
-            msm72xx_enable_audpp(new_post_proc_feature_mask);*/
-      
-       snd_device = new_snd_device;
-       post_proc_feature_mask = new_post_proc_feature_mask;
+       ret = doAudioRouteOrMute(new_snd_device);	      
+	   
+	if(playback_in_progress)
+           msm72xx_enable_postproc(false);
+	   
+        snd_device = new_snd_device;
+        post_proc_feature_mask = new_post_proc_feature_mask;
+	   
+	if(playback_in_progress)
+           msm72xx_enable_postproc(true);
+	   
        mCurSndDevice = new_snd_device;
     }
 
@@ -1741,7 +1618,7 @@ ssize_t AudioHardware::AudioStreamOutMSM72xx::write(const void* buffer, size_t b
             ioctl(mFd, AUDIO_START, 0);
             playback_in_progress = true;
             //enable post processing
-            //msm72xx_enable_postproc(true);
+            msm72xx_enable_postproc(true);
         }
     }
     return bytes;
@@ -1762,7 +1639,7 @@ status_t AudioHardware::AudioStreamOutMSM72xx::standby()
     status_t status = NO_ERROR;
     if (!mStandby && mFd >= 0) {
         //disable post processing
-        //msm72xx_enable_postproc(false);
+        msm72xx_enable_postproc(false);
         playback_in_progress = false;
         ::close(mFd);
         mFd = -1;
