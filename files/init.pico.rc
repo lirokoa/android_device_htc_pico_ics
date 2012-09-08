@@ -47,10 +47,28 @@ on boot
     write /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor ondemand
     write /sys/devices/system/cpu/cpufreq/ondemand/sampling_rate 40000
     
+    # for CM performance
+    chown root system /sys/devices/system/cpu/cpu0/cpufreq/scaling_available_frequencies
+    chown root system /sys/devices/system/cpu/cpu0/cpufreq/scaling_available_governors
+    chown root system /sys/devices/system/cpu/cpu0/cpufreq/scaling_cur_freq 
+    
+    # Enable low memory killer to check file pages
+    write /sys/module/lowmemorykiller/parameters/minfile 0,0,0,5120,5632,6144
+    write /sys/module/lowmemorykiller/parameters/check_filepages 1
+    
+    #usb tethering
+    chmod 0777 /sys/class/usb_composite/*
+    
     # flashlight
     chown system camera /sys/devices/platform/flashlight.0/leds/flashlight/brightness
     chmod 0660          /sys/devices/platform/flashlight.0/leds/flashlight/brightness
 
+    # fix for entropy service and some other that failed
+    # Need for NET
+    chmod 755 /data/system/appwidgets.xml
+    chmod 755 /data/system/entropy.dat
+    chmod 755 /data/system/wallpaper_info.xml
+    
     # enable the GPS
     setprop ro.ril.def.agps.mode 2
 
@@ -82,11 +100,6 @@ service wpa_supplicant /system/bin/wpa_supplicant \
     disabled
     oneshot
 
-service dhcpcd_usb0 /system/bin/logwrapper /system/bin/dhcpcd usb0
-    user root
-    disabled
-    oneshot
-    
 service dhcpcd_eth0 /system/bin/dhcpcd -ABKL
     class main
     disabled
