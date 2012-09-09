@@ -58,7 +58,11 @@ on boot
     
     #usb tethering
     chmod 0777 /sys/class/usb_composite/*
-    
+
+    # Fix ipconfig for wifi
+    touch /data/misc/wifi/ipconfig.txt
+    chmod 0777 /data/misc/wifi/ipconfig.txt
+
     # flashlight
     chown system camera /sys/devices/platform/flashlight.0/leds/flashlight/brightness
     chmod 0660          /sys/devices/platform/flashlight.0/leds/flashlight/brightness
