@@ -70,8 +70,8 @@
          than the size of the config_autoBrightnessLevels array.
     -->
     <integer-array name="config_autoBrightnessLcdBacklightValues">
-        <item>40</item>
-        <item>40</item>
+        <item>30</item>
+	<item>40</item>
         <item>55</item>
         <item>65</item>
         <item>80</item>
@@ -88,6 +88,7 @@
          than the size of the config_autoBrightnessLevels array.
     -->
     <integer-array name="config_autoBrightnessButtonBacklightValues">
+	<item>255</item>
         <item>255</item>
         <item>255</item>
         <item>255</item>
@@ -116,6 +117,7 @@
         <item>0</item>
         <item>0</item>
         <item>0</item>
+	<item>0</item>
     </integer-array>
 
     <!-- Minimum screen brightness allowed by the power manager. -->
