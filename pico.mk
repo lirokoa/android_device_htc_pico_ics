@@ -22,6 +22,9 @@
 PRODUCT_PACKAGES += \
     libstagefrighthw \
     libmm-omxcore \
+    libOmxH264Dec \
+    libOmxMpeg4Dec \
+    libOmxVidEnc \
     libOmxCore \
     libOmxVidEnc 
     
