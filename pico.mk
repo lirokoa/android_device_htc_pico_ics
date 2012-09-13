@@ -22,8 +22,7 @@
 PRODUCT_PACKAGES += \
     libstagefrighthw \
     libmm-omxcore \
-    libOmxCore \
-    libOmxVidEnc 
+    libOmxCore 
     
 # Graphics 
 PRODUCT_PACKAGES += \
