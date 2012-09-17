@@ -3,6 +3,8 @@
 #
 rild.libpath=/system/lib/libhtc_ril.so
 rild.libargs=-d /dev/smd0
+rild.libpath.ganlite=/system/lib/librilswitch.so
+rilswitch.vendorlibpath=/system/lib/libhtc_ril.so
 ro.ril.hep = 1
 ro.ril.enable.dtm = 1
 ro.ril.hsdpa.category = 8
@@ -46,13 +48,9 @@ ro.ril.fd.r8_tout.scr_off=0
 ro.ril.fd.r8_tout.scr_on=0
 ro.ril.gprsclass=10
 ro.telephony.ril.v3=signalstrength
-ro.ril.update.acoustic.table = 1
 
 # Modify MMS APN retry timer from 5s to 2s.
 ro.gsm.2nd_data_retry_config = max_retries=3, 5000, 5000, 5000
-
-# enable dithering (always)
-persist.sys.use_dithering=2
 
 ro.ril.htcmaskw1.bitmask = 4294967295
 ro.ril.htcmaskw1 = 14449
@@ -81,9 +79,6 @@ view.fading_edge_length = 8
 view.touch_slop = 15
 view.minimum_fling_velocity = 25
 view.scroll_friction = 0.008
-
-# For SD storage insert notification sound
-persist.service.mount.playsnd = 0
 
 # For the agps default value
 ro.ril.def.agps.mode = 2
@@ -122,32 +117,6 @@ ro.media.enc.vid.m4v.height    = 144,480
 ro.media.enc.vid.m4v.bps       = 64000,1600000
 ro.media.enc.vid.m4v.fps       = 1,30
 
-# 
-# Increase SKIA decode memory capability for progressive jpg file
-#
-ro.media.dec.jpeg.memcap 	= 20000000
-
-# Release Bluetooth HW/SW information
-ro.bt.chipset	= Broadcom BCM4329-B1
-ro.bt.version	= Bluetooth 2.1 + EDR
-ro.bt.stack	= Broadcom BTL-A
-ro.bt.stack.version	= 2.2.017
-#0x10000010010100100000011 represent bt profile list
-ro.bt.profiles	= 4270339
-
-# Properties of BTLA stack
-service.brcm.bt.activation = 0
-service.brcm.bt.srv_active = 0
-service.brcm.bt.hcid_active = 0
-service.brcm.bt.btld = 0
-service.brcm.bt.btld_pid = 0
-service.brcm.bt.avrcp_pass_thru = 0
-service.brcm.bt.avrcp_toggle = 1
-service.brcm.bt.local_name =
-
-# USB
-persist.sys.usb.config=mass_storage,adb
-
 # CAF & Misc.
 persist.rild.nitz_plmn=
 persist.rild.nitz_long_ons_0=
@@ -181,8 +150,9 @@ com.qc.hdmi_out=false
 debug.camcorder.disablemeta=1
 ro.media.enc.jpeg.quality=100
 ro.media.dec.jpeg.memcap=8000000
-persist.sys.usb.config=mass_storage,adb
 ro.setupwizard.mode=OPTIONAL
+hwui.print_config=choice
+hwui.disable_vsync=true 
 ro.setupwizard.enable_bypass=1
 ro.media.dec.aud.wma.enabled=1
 ro.media.dec.vid.wmv.enabled=1
@@ -190,6 +160,4 @@ dalvik.vm.dexopt-flags=m=y
 ro.config.sync=yes
 ro.phone_storage=0
 dalvik.vm.heapsize=32m
-media.a1026.nsForVoiceRec=0
-media.a1026.enableA1026=1
 

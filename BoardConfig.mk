@@ -15,6 +15,9 @@
 
 USE_CAMERA_STUB := true
 
+TARGET_GLOBAL_CFLAGS += -mfpu=neon -mfloat-abi=softfp
+TARGET_GLOBAL_CPPFLAGS += -mfpu=neon -mfloat-abi=softfp
+
 #Jb Libhwcomposer
 TARGET_NO_HW_VSYNC := true
 BOARD_NEEDS_MEMORYHEAPPMEM := true
@@ -54,7 +57,7 @@ TARGET_NO_RADIOIMAGE := true
 BOARD_CUSTOM_RECOVERY_KEYMAPPING:= ../../device/htc/pico/recovery/recovery_ui.c
 BOARD_CUSTOM_GRAPHICS := ../../../device/htc/pico/recovery/graphics.c
 TARGET_PREBUILT_RECOVERY_KERNEL := device/htc/pico/prebuilt/recovery_kernel
-TARGET_RECOVERY_INITRC := device/htc/pico/files/recovery.rc
+TARGET_RECOVERY_INITRC := device/htc/pico/files/init.recovery.rc
 TARGET_RECOVERY_FSTAB := device/htc/pico/recovery.fstab
 BOARD_RECOVERY_HANDLES_MOUNT := true
 
@@ -109,16 +112,20 @@ BOARD_USES_QCOM_LIBRPC := true
 BOARD_USES_QCOM_LIBS := true
 TARGET_GRALLOC_USES_ASHMEM := true
 
-# Wifi related defines
-BOARD_WPA_SUPPLICANT_DRIVER      := WEXT
-WPA_SUPPLICANT_VERSION           := VER_0_8_X
-BOARD_WPA_SUPPLICANT_PRIVATE_LIB := lib_driver_cmd_wext
-BOARD_WLAN_DEVICE                := bcm4330
-WIFI_DRIVER_MODULE_PATH          := "/system/lib/modules/bcm4330.ko"
-WIFI_DRIVER_FW_PATH_STA          := "/system/etc/firmware/fw_bcm4330b2.bin"
-WIFI_DRIVER_FW_PATH_AP           := "/system/etc/firmware/fw_bcm4330b2_apsta.bin"
-WIFI_DRIVER_MODULE_NAME          := "bcm4330"
-WIFI_DRIVER_MODULE_ARG           := "firmware_path=/system/etc/firmware/fw_bcm4330b2.bin nvram_path=/proc/calibration iface_name=eth0"
+# Wifi related definitions
+BOARD_WPA_SUPPLICANT_DRIVER := NL80211
+WPA_SUPPLICANT_VERSION := VER_0_8_X
+BOARD_WPA_SUPPLICANT_PRIVATE_LIB := lib_driver_cmd_bcmdhd
+BOARD_HOSTAPD_DRIVER        := NL80211
+BOARD_HOSTAPD_PRIVATE_LIB   := lib_driver_cmd_bcmdhd
+BOARD_WLAN_DEVICE           := bcmdhd
+WIFI_DRIVER_FW_PATH_PARAM := "/sys/module/bcmdhd/parameters/firmware_path"
+WIFI_DRIVER_MODULE_PATH := "/system/lib/modules/bcmdhd.ko"
+WIFI_DRIVER_FW_PATH_STA := "/system/etc/firmware/fw_bcm4330_b2.bin"
+WIFI_DRIVER_FW_PATH_AP := "/system/etc/firmware/fw_bcm4330_apsta_b2.bin"
+WIFI_DRIVER_FW_PATH_P2P := "/system/etc/firmware/fw_bcm4330_p2p_b2.bin"
+WIFI_DRIVER_MODULE_NAME := "bcmdhd"
+WIFI_DRIVER_MODULE_ARG := "firmware_path=/system/etc/firmware/fw_bcm4330_b2.bin nvram_path=/proc/calibration iface_name=eth0 dhd_watchdog_ms=10 dhd_poll=1"
 
 # GPS
 BOARD_USES_QCOM_GPS := true
@@ -126,30 +133,28 @@ BOARD_VENDOR_QCOM_GPS_LOC_API_HARDWARE := pico
 BOARD_VENDOR_QCOM_GPS_LOC_API_AMSS_VERSION := 50000
 
 # Graphics
-DCHECK_FOR_EXTERNAL_FORMAT := true
 BOARD_USE_SKIA_LCDTEXT := true
-BOARD_FORCE_DITHERING := true
-USE_OPENGL_RENDERER := true
-BOARD_NEEDS_MEMORYHEAPPMEM := true
 TARGET_USES_GENLOCK := true
+USE_OPENGL_RENDERER := true
+BOARD_ADRENO_DECIDE_TEXTURE_TARGET := true
 TARGET_FORCE_CPU_UPLOAD := true
 BOARD_AVOID_DRAW_TEXTURE_EXTENSION := true
-#COMMON_GLOBAL_CFLAGS += -DMISSING_GRALOC_BUFFERS 
-#COMMON_GLOBAL_CFLAGS += -DMISSING_EGL_PIXEL_FORMAT_YV12 
-#COMMON_GLOBAL_CFLAGS += -DMISSING_EGL_EXTERNAL_IMAGE
+TARGET_USES_C2D_COMPOSITION := true
+TARGET_USES_SF_BYPASS := false
+TARGET_HAVE_BYPASS := false
+TARGET_USES_OVERLAY := false
+TARGET_QCOM_HDMI_OUT := false
 COMMON_GLOBAL_CFLAGS += -DHAVE_ARM_TLS_REGISTER
 COMMON_GLOBAL_CFLAGS += -DQCOM_HARDWARE -DREFRESH_RATE=65 -DFORCE_CPU_UPLOAD
 COMMON_GLOBAL_CFLAGS += -DQCOM_NO_SECURE_PLAYBACK -DBINDER_COMPAT
 
-# Webkit, browser
-JS_ENGINE := v8
-HTTP := chrome
-ENABLE_WEBGL := true
-TARGET_WEBKIT_USE_MORE_MEMORY := true
-
-# JIT
+# Browser & ICS Stuff
 WITH_JIT := true
 ENABLE_JSC_JIT := true
+HTTP := chrome
+BOARD_HAS_NO_SELECT_BUTTON := true
+TARGET_WEBKIT_USE_MORE_MEMORY := true
+JS_ENGINE := v8
 
 # ICS Stuff 
 BOARD_HAS_NO_SELECT_BUTTON := true
