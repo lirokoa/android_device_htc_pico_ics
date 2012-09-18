@@ -216,6 +216,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
 PRODUCT_NAME := pico
 PRODUCT_DEVICE := pico
 PRODUCT_MODEL := HTC Explorer A310
+PRODUCT_BRAND := htc_europe
 
 # Mdpi assets
 PRODUCT_AAPT_CONFIG := normal mdpi
