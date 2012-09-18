@@ -53,9 +53,8 @@ PRODUCT_PACKAGES += \
     
 # Camera
 PRODUCT_PACKAGES += \
-    camera.msm7x27a \
-    LegacyCamera 
-
+    camera.msm7x27a
+    
 # Filesystem management tools
 PRODUCT_PACKAGES += \
     make_ext4fs \
@@ -65,7 +64,7 @@ PRODUCT_PACKAGES += \
 PRODUCT_COPY_FILES += \
     device/htc/pico/files/init.pico.rc:root/init.pico.rc \
     device/htc/pico/files/ueventd.pico.rc:root/ueventd.pico.rc \
-    device/htc/pico/files/init.pico.usb.rc:root/init.pico.usb.rc \
+    device/htc/pico/files/init.pico.usb.rc:root/init.pico.usb.rc
     
 # Set usb type
 ADDITIONAL_DEFAULT_PROPERTIES += \
@@ -143,11 +142,6 @@ PRODUCT_COPY_FILES += \
 PRODUCT_COPY_FILES += \
     device/htc/pico/prebuilt/etc/firmware/yamato_pfp.fw:system/etc/firmware/yamato_pfp.fw \
     device/htc/pico/prebuilt/etc/firmware/yamato_pm4.fw:system/etc/firmware/yamato_pm4.fw \
-    device/htc/pico/prebuilt/etc/firmware/a225p5_pm4.fw:system/etc/firmware/a225p5_pm4.fw \
-    device/htc/pico/prebuilt/etc/firmware/a225_pfp.fw:system/etc/firmware/a225_pfp.fw \
-    device/htc/pico/prebuilt/etc/firmware/a225_pm4.fw:system/etc/firmware/a225_pm4.fw \
-    device/htc/pico/prebuilt/etc/firmware/leia_pfp_470.fw:system/etc/firmware/leia_pfp_470.fw \
-    device/htc/pico/prebuilt/etc/firmware/leia_pm4_470.fw:system/etc/firmware/leia_pm4_470.fw \
     device/htc/pico/prebuilt/lib/libC2D2.so:system/lib/libC2D2.so \
     device/htc/pico/prebuilt/lib/libgsl.so:system/lib/libgsl.so \
     device/htc/pico/prebuilt/lib/libc2d2_z180.so:system/lib/libc2d2_z180.so \
@@ -215,7 +209,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
 
 PRODUCT_NAME := pico
 PRODUCT_DEVICE := pico
-PRODUCT_MODEL := HTC Explorer A310
+PRODUCT_MODEL := HTC Explorer A310e
 PRODUCT_BRAND := htc_europe
 
 # Mdpi assets
