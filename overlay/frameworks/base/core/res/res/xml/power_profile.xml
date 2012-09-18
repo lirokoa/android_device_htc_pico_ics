@@ -32,9 +32,6 @@
       <value>400000</value>
       <value>480000</value>
       <value>600000</value>
-      <value>768000</value>
-      <value>787200</value>
-      <value>806400</value>
   </array>
   <item name="cpu.idle">3.0</item>
   <array name="cpu.active">
@@ -46,10 +43,7 @@
       <value>88</value>  <!-- 400000 -->
       <value>100</value> <!-- 480000 -->
       <value>120</value> <!-- 600000 -->
-      <value>160</value> <!-- 768000 -->
-      <value>170</value> <!-- 787200 -->
-      <value>180</value> <!-- 806400 -->
   </array>
 <!-- This is the battery capacity in mAh -->
-  <item name="battery.capacity">1500</item>
+  <item name="battery.capacity">1230</item>
 </device>
