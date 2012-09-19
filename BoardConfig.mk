@@ -88,6 +88,7 @@ BOARD_FLASH_BLOCK_SIZE := 262144
 
 # Build kernel from source
 TARGET_KERNEL_CONFIG := htc_pico_defconfig
+TARGET_KERNEL_CUSTOM_TOOLCHAIN := arm-eabi-4.4.3
 #TARGET_PREBUILT_KERNEL := device/htc/pico/prebuilt/kernel
 
 # Vold
