@@ -85,7 +85,7 @@ WIFI_DRIVER_FW_PATH_STA := "/system/etc/firmware/fw_bcm4330_b2.bin"
 WIFI_DRIVER_FW_PATH_AP := "/system/etc/firmware/fw_bcm4330_apsta_b2.bin"
 WIFI_DRIVER_FW_PATH_P2P := "/system/etc/firmware/fw_bcm4330_p2p_b2.bin"
 WIFI_DRIVER_MODULE_NAME := "bcmdhd"
-WIFI_DRIVER_MODULE_ARG := "firmware_path=/system/etc/firmware/fw_bcm4330_b2.bin nvram_path=/proc/calibration iface_name=eth0 dhd_watchdog_ms=10 dhd_poll=1"
+WIFI_DRIVER_MODULE_ARG := "firmware_path=/system/etc/firmware/fw_bcm4330_b2.bin nvram_path=/proc/calibration iface_name=eth0"
 
 # Releasetools
 TARGET_RELEASETOOLS_EXTENSIONS := device/htc/pico/releasetools
@@ -98,7 +98,6 @@ BOARD_VENDOR_QCOM_GPS_LOC_API_AMSS_VERSION := 50000
 
 
 # Graphics
-# COMMON_GLOBAL_CFLAGS += -DMISSING_EGL_EXTERNAL_IMAGE -DMISSING_EGL_PIXEL_FORMAT_YV12 -DMISSING_GRALLOC_BUFFERS
 BOARD_USE_SKIA_LCDTEXT := true
 TARGET_USES_GENLOCK := true
 USE_OPENGL_RENDERER := true
@@ -117,16 +116,13 @@ BOARD_HAS_NO_SELECT_BUTTON := true
 # RIL
 BOARD_USE_NEW_LIBRIL_HTC := true
 
-#COMMON_GLOBAL_CFLAGS += -DUSE_htc_ALS_DUMMY
-
 # Add h/w acceleration in browser :)
 ENABLE_WEBGL := true
 WITH_JIT := true
 ENABLE_JSC_JIT := true
 JS_ENGINE := v8
 HTTP := chrome
-COMMON_GLOBAL_CFLAGS += -DQCOM_HARDWARE
-COMMON_GLOBAL_CFLAGS += -DREFRESH_RATE=65
+COMMON_GLOBAL_CFLAGS += -DQCOM_HARDWARE -DQCOM_ROTATOR_KERNEL_FORMATS -DREFRESH_RATE=65
 
 # Touch screen compatibility for ICS
 BOARD_USE_LEGACY_TOUCHSCREEN := true

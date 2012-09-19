@@ -948,7 +948,7 @@ static int get_audpp_filter(void)
 
 static int msm72xx_enable_postproc(bool state)
 {   
-   int (*msm72xx_enable_audpp)(int);
+   /*int (*msm72xx_enable_audpp)(int);
    msm72xx_enable_audpp = (int (*)(int))::dlsym(acoustic, "msm72xx_enable_audpp");
    
     if(state){
@@ -964,7 +964,7 @@ static int msm72xx_enable_postproc(bool state)
 
         LOGI("disabling post proc features with mask 0x%04x", disable_mask);
         msm72xx_enable_audpp(disable_mask);
-   }
+   }*/
    
    return 0; 
 }
@@ -1217,9 +1217,6 @@ status_t AudioHardware::doRouting(AudioStreamInMSM72xx *input)
     int new_snd_device = -1;
     int new_post_proc_feature_mask = 0;
     bool enableDgtlFmDriver = false;
-
-   int (*msm72xx_enable_audpp)(int);
-   msm72xx_enable_audpp = (int (*)(int))::dlsym(acoustic, "msm72xx_enable_audpp");
 
     if (input != NULL) {
         uint32_t inputDevice = input->devices();

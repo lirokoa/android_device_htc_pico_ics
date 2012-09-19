@@ -104,23 +104,24 @@ ro.ril.avoid.pdp.overlap = 1
 # This file describes the media capabilities and profiles
 # using system properties.
 #
-# Note:    The property key and value has some length
-#          limit as defined by PROPERTY_KEY_MAX and
-#          PROPERTY_VALUE_MAX, respectively
+# Note: The property key and value has some length
+# limit as defined by PROPERTY_KEY_MAX and
+# PROPERTY_VALUE_MAX, respectively
 #
 # WARNING: We may not use system properties for specifying
-#          media capabilities and profiles in the future
+# media capabilities and profiles in the future
 #
-ro.media.enc.file.format       = 3gp,mp4
-ro.media.enc.vid.codec         = m4v,h263
-ro.media.enc.vid.h263.width    = 176,640
-ro.media.enc.vid.h263.height   = 144,480
-ro.media.enc.vid.h263.bps      = 64000,1600000
-ro.media.enc.vid.h263.fps      = 1,30
-ro.media.enc.vid.m4v.width     = 176,640
-ro.media.enc.vid.m4v.height    = 144,480
-ro.media.enc.vid.m4v.bps       = 64000,1600000
-ro.media.enc.vid.m4v.fps       = 1,30
+ro.media.enc.file.format = 3gp,mp4
+ro.media.enc.vid.codec = m4v,h263
+ro.media.enc.vid.h263.width = 176,640
+ro.media.enc.vid.h263.height = 144,480
+ro.media.enc.vid.h263.bps = 64000,1600000
+ro.media.enc.vid.h263.fps = 1,30
+ro.media.enc.vid.m4v.width = 176,640
+ro.media.enc.vid.m4v.height = 144,480
+ro.media.enc.vid.m4v.bps = 64000,1600000
+ro.media.enc.vid.m4v.fps = 1,30
+
 
 # 
 # Increase SKIA decode memory capability for progressive jpg file
@@ -139,3 +140,19 @@ dalvik.vm.heapsize=64m
 # For QC perf binary hooks
 # src:vendor/qcom/proprietary/android-perf/release/lib/<CPU arch>/libqc-opt.so
 ro.vendor.extension_library=/system/lib/libqc-opt.so
+
+media.video.max-width=854
+media.video.max-height=480
+media.divx-video.max-width=854
+media.divx-video.max-height=480
+ro.hw_plat=7x27a
+ro.adb.qemud=1
+media.stagefright.enable-player=true
+media.stagefright.enable-scan=true
+media.stagefright.enable-http=true
+media.stagefright.enable-fma2dp=true
+media.stagefright.enable-aac=true
+media.stagefright.enable-qcp=true
+debug.camcorder.disablemeta=0
+debug.composition.7x27A.type=mdp
+dalvik.vm.stack-trace-file=/data/anr/traces.txt

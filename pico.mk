@@ -23,7 +23,6 @@ PRODUCT_PACKAGES += \
     libstagefrighthw \
     libmm-omxcore \
     libOmxCore \
-    libOmxVidEnc 
     
 # Graphics 
 PRODUCT_PACKAGES += \
@@ -68,7 +67,6 @@ PRODUCT_COPY_FILES += \
     frameworks/base/data/etc/android.hardware.touchscreen.multitouch.xml:system/etc/permissions/android.hardware.touchscreen.multitouch.xml \
     frameworks/base/data/etc/android.hardware.wifi.xml:system/etc/permissions/android.hardware.wifi.xml \
     frameworks/base/data/etc/android.hardware.wifi.direct.xml:system/etc/permissions/android.hardware.wifi.direct.xml \
-    frameworks/base/data/etc/platform.xml:system/etc/permissions/platform.xml \
     frameworks/base/data/etc/android.software.sip.xml:system/etc/permissions/android.software.sip.xml \
     frameworks/base/data/etc/android.software.sip.voip.xml:system/etc/permissions/android.software.sip.voip.xml \
     frameworks/base/data/etc/handheld_core_hardware.xml:system/etc/permissions/handheld_core_hardware.xml \
@@ -93,7 +91,8 @@ PRODUCT_COPY_FILES += \
     vendor/htc/pico/proprietary/lib/libchromatix_mt9t013_preview.so:system/lib/libchromatix_mt9t013_preview.so \
     vendor/htc/pico/proprietary/bin/awb_camera:system/bin/awb_camera \
     vendor/htc/pico/proprietary/bin/lsc_camera:system/bin/lsc_camera \
-    vendor/htc/pico/proprietary/bin/mm-qcamera-daemon:system/bin/mm-qcamera-daemon 
+    vendor/htc/pico/proprietary/bin/mm-qcamera-daemon:system/bin/mm-qcamera-daemon \
+    device/htc/pico/prebuilt/etc/media_profiles.xml:system/etc/media_profiles.xml \
     
 # OMX
 PRODUCT_COPY_FILES += \
@@ -105,7 +104,7 @@ PRODUCT_COPY_FILES += \
     vendor/htc/pico/proprietary/lib/libOmxH264Dec.so:system/lib/libOmxH264Dec.so \
     vendor/htc/pico/proprietary/lib/libOmxMpeg4Dec.so:system/lib/libOmxMpeg4Dec.so \
     vendor/htc/pico/proprietary/lib/libOmxVidEnc.so:system/lib/libOmxVidEnc.so \
-    
+
     
 # Set usb type
 ADDITIONAL_DEFAULT_PROPERTIES += \
@@ -138,7 +137,7 @@ PRODUCT_COPY_FILES += \
 # Prebuilt Modules
 PRODUCT_COPY_FILES += \
     device/htc/pico/prebuilt/bcmdhd.ko:system/lib/modules/bcmdhd.ko \
-    device/htc/pico/prebuilt/kineto_gan.ko:system/lib/modules/kineto_gan.ko 
+    device/htc/pico/prebuilt/kineto_gan.ko:system/lib/modules/kineto_gan.ko \
     device/htc/pico/prebuilt/cifs.ko:system/lib/modules/cifs.ko \
 
 # Wifi
@@ -157,6 +156,7 @@ PRODUCT_COPY_FILES += \
     device/htc/pico/prebuilt/etc/AudioPara4.csv:system/etc/AudioPara4.csv \
     device/htc/pico/prebuilt/etc/AudioPara4_WB.csv:system/etc/AudioPara4_WB.csv \
     device/htc/pico/prebuilt/etc/AudioPreProcess.csv:system/etc/AudioPreProcess.csv \
+    device/htc/pico/prebuilt/etc/AudioFilter_HP.csv:system/etc/AudioFilter_HP.csv \
     vendor/htc/pico/proprietary/lib/libaudioeq.so:system/lib/libaudioeq.so \
     vendor/htc/pico/proprietary/lib/libhtc_acoustic.so:system/lib/libhtc_acoustic.so \
     
@@ -181,11 +181,12 @@ PRODUCT_COPY_FILES += \
     vendor/htc/pico/proprietary/lib/egl/libGLESv1_CM_adreno200.so:system/lib/egl/libGLESv1_CM_adreno200.so \
     vendor/htc/pico/proprietary/lib/egl/libGLESv2_adreno200.so:system/lib/egl/libGLESv2_adreno200.so \
     vendor/htc/pico/proprietary/lib/egl/libq3dtools_adreno200.so:system/lib/egl/libq3dtools_adreno200.so 
-
-
+    
+    
 # RIL
 PRODUCT_COPY_FILES += \
     vendor/htc/pico/proprietary/lib/libhtc_ril.so:system/lib/libhtc_ril.so \
+    vendor/htc/pico/proprietary/lib/libqc-opt.so:system/lib/libqc-opt.so \
     
 # Don't work on 4.0.4 because from 2.3.5! You need to compile it with yourself
 PRODUCT_COPY_FILES += \
@@ -224,7 +225,6 @@ PRODUCT_COPY_FILES += \
     
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.product.camera=pico \
-    debug.camcorder.disablemeta=1 \
     ro.com.google.locationfeatures=1 \
     ro.com.google.networklocation=1 \
     ro.com.google.gmsversion=2.3_r6 \
