@@ -42,8 +42,8 @@ MM_AUDIO_VOEM_DISABLED := false
 # Needs Review
 #BOARD_CAMERA_USE_GETBUFFERINFO := true
 # This is needed by libcamera.so
-#BOARD_USE_NASTY_PTHREAD_CREATE_HACK := true
-#BOARD_USE_CAF_LIBCAMERA := true
+BOARD_USE_NASTY_PTHREAD_CREATE_HACK := true
+BOARD_USE_CAF_LIBCAMERA := true
 
 # Arch related defines
 TARGET_BOARD_PLATFORM := msm7x27a
@@ -86,8 +86,9 @@ BOARD_SYSTEMIMAGE_PARTITION_SIZE := 0x0eb40000
 BOARD_USERDATAIMAGE_PARTITION_SIZE := 0x09600000
 BOARD_FLASH_BLOCK_SIZE := 262144
 
-# Prebuilt kernel
-TARGET_PREBUILT_KERNEL := device/htc/pico/prebuilt/kernel
+# Build kernel from source
+TARGET_KERNEL_CONFIG := htc_pico_defconfig
+#TARGET_PREBUILT_KERNEL := device/htc/pico/prebuilt/kernel
 
 # Vold
 BOARD_VOLD_MAX_PARTITIONS := 24
