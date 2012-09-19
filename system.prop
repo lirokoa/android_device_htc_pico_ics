@@ -140,19 +140,5 @@ dalvik.vm.heapsize=64m
 # For QC perf binary hooks
 # src:vendor/qcom/proprietary/android-perf/release/lib/<CPU arch>/libqc-opt.so
 ro.vendor.extension_library=/system/lib/libqc-opt.so
-
-media.video.max-width=854
-media.video.max-height=480
-media.divx-video.max-width=854
-media.divx-video.max-height=480
-ro.hw_plat=7x27a
-ro.adb.qemud=1
-media.stagefright.enable-player=true
-media.stagefright.enable-scan=true
-media.stagefright.enable-http=true
-media.stagefright.enable-fma2dp=true
-media.stagefright.enable-aac=true
-media.stagefright.enable-qcp=true
 debug.camcorder.disablemeta=0
-debug.composition.7x27A.type=mdp
 dalvik.vm.stack-trace-file=/data/anr/traces.txt
