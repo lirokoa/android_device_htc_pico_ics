@@ -15,9 +15,6 @@
 
 USE_CAMERA_STUB := true
 
-TARGET_GLOBAL_CFLAGS += -mfpu=neon -mfloat-abi=softfp
-TARGET_GLOBAL_CPPFLAGS += -mfpu=neon -mfloat-abi=softfp
-
 #Jb Libhwcomposer
 TARGET_NO_HW_VSYNC := true
 BOARD_NEEDS_MEMORYHEAPPMEM := true
@@ -57,11 +54,12 @@ TARGET_NO_RADIOIMAGE := true
 BOARD_CUSTOM_RECOVERY_KEYMAPPING:= ../../device/htc/pico/recovery/recovery_ui.c
 BOARD_CUSTOM_GRAPHICS := ../../../device/htc/pico/recovery/graphics.c
 TARGET_PREBUILT_RECOVERY_KERNEL := device/htc/pico/prebuilt/recovery_kernel
-TARGET_RECOVERY_INITRC := device/htc/pico/files/init.recovery.rc
+TARGET_RECOVERY_INITRC := device/htc/pico/files/recovery.rc
 TARGET_RECOVERY_FSTAB := device/htc/pico/recovery.fstab
 BOARD_RECOVERY_HANDLES_MOUNT := true
 
-# Arch definitions
+# Yes we do,but let's hash it out 
+# ARCH_ARM_HAVE_VFP := true
 TARGET_ARCH_VARIANT := armv7-a-neon
 TARGET_CPU_ABI := armeabi-v7a
 TARGET_CPU_ABI2 := armeabi
@@ -86,10 +84,8 @@ BOARD_SYSTEMIMAGE_PARTITION_SIZE := 0x0eb40000
 BOARD_USERDATAIMAGE_PARTITION_SIZE := 0x09600000
 BOARD_FLASH_BLOCK_SIZE := 262144
 
-# Build kernel from source
-TARGET_KERNEL_CONFIG := htc_pico_defconfig
-TARGET_KERNEL_CUSTOM_TOOLCHAIN := arm-eabi-4.4.3
-#TARGET_PREBUILT_KERNEL := device/htc/pico/prebuilt/kernel
+# Prebuilt kernel
+TARGET_PREBUILT_KERNEL := device/htc/pico/prebuilt/kernel
 
 # Vold
 BOARD_VOLD_MAX_PARTITIONS := 24
@@ -126,7 +122,7 @@ WIFI_DRIVER_FW_PATH_STA := "/system/etc/firmware/fw_bcm4330_b2.bin"
 WIFI_DRIVER_FW_PATH_AP := "/system/etc/firmware/fw_bcm4330_apsta_b2.bin"
 WIFI_DRIVER_FW_PATH_P2P := "/system/etc/firmware/fw_bcm4330_p2p_b2.bin"
 WIFI_DRIVER_MODULE_NAME := "bcmdhd"
-WIFI_DRIVER_MODULE_ARG := "firmware_path=/system/etc/firmware/fw_bcm4330_b2.bin nvram_path=/proc/calibration iface_name=eth0 dhd_watchdog_ms=10 dhd_poll=1"
+WIFI_DRIVER_MODULE_ARG := "firmware_path=/system/etc/firmware/fw_bcm4330_b2.bin nvram_path=/proc/calibration iface_name=eth0"
 
 # GPS
 BOARD_USES_QCOM_GPS := true
@@ -134,31 +130,32 @@ BOARD_VENDOR_QCOM_GPS_LOC_API_HARDWARE := pico
 BOARD_VENDOR_QCOM_GPS_LOC_API_AMSS_VERSION := 50000
 
 # Graphics
+DCHECK_FOR_EXTERNAL_FORMAT := true
 BOARD_USE_SKIA_LCDTEXT := true
-TARGET_USES_GENLOCK := true
+BOARD_FORCE_DITHERING := true
 USE_OPENGL_RENDERER := true
-BOARD_ADRENO_DECIDE_TEXTURE_TARGET := true
+BOARD_NEEDS_MEMORYHEAPPMEM := true
+TARGET_USES_GENLOCK := true
 TARGET_FORCE_CPU_UPLOAD := true
 BOARD_AVOID_DRAW_TEXTURE_EXTENSION := true
-TARGET_USES_C2D_COMPOSITION := true
-TARGET_USES_SF_BYPASS := false
-TARGET_HAVE_BYPASS := false
-TARGET_USES_OVERLAY := false
-TARGET_QCOM_HDMI_OUT := false
+#COMMON_GLOBAL_CFLAGS += -DMISSING_GRALOC_BUFFERS 
+#COMMON_GLOBAL_CFLAGS += -DMISSING_EGL_PIXEL_FORMAT_YV12 
+#COMMON_GLOBAL_CFLAGS += -DMISSING_EGL_EXTERNAL_IMAGE
 COMMON_GLOBAL_CFLAGS += -DHAVE_ARM_TLS_REGISTER
-COMMON_GLOBAL_CFLAGS += -DQCOM_HARDWARE -DREFRESH_RATE=65 -DFORCE_CPU_UPLOAD -DQCOM_ROTATOR_KERNEL_FORMATS
+COMMON_GLOBAL_CFLAGS += -DQCOM_HARDWARE -DREFRESH_RATE=65 -DFORCE_CPU_UPLOAD
 COMMON_GLOBAL_CFLAGS += -DQCOM_NO_SECURE_PLAYBACK -DBINDER_COMPAT
 
-# Browser & ICS Stuff
+# Webkit, browser
+JS_ENGINE := v8
+HTTP := chrome
+ENABLE_WEBGL := true
+TARGET_WEBKIT_USE_MORE_MEMORY := true
+
+# JIT
 WITH_JIT := true
 ENABLE_JSC_JIT := true
-ENABLE_WEBGL := true
-HTTP := chrome
-BOARD_HAS_NO_SELECT_BUTTON := true
-TARGET_WEBKIT_USE_MORE_MEMORY := true
-JS_ENGINE := v8
 
-# JB Stuff 
+# ICS Stuff 
 BOARD_HAS_NO_SELECT_BUTTON := true
 
 # RIL
@@ -173,7 +170,7 @@ TARGET_BOOTANIMATION_TEXTURE_CACHE := true
 # Misc.
 TARGET_NO_INITLOGO := true
 
-# Touch screen compatibility for JB
+# Touch screen compatibility for ICS
 BOARD_USE_LEGACY_TOUCHSCREEN := true
 
 # OTA script

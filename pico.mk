@@ -49,12 +49,13 @@ PRODUCT_PACKAGES += \
 
 # Misc
 PRODUCT_PACKAGES += \
-    com.android.future.usb.accessory
+    com.android.future.usb.accessory \
     
 # Camera
 PRODUCT_PACKAGES += \
-    camera.msm7x27a
-    
+    camera.msm7x27a \
+    LegacyCamera 
+
 # Filesystem management tools
 PRODUCT_PACKAGES += \
     make_ext4fs \
@@ -64,7 +65,7 @@ PRODUCT_PACKAGES += \
 PRODUCT_COPY_FILES += \
     device/htc/pico/files/init.pico.rc:root/init.pico.rc \
     device/htc/pico/files/ueventd.pico.rc:root/ueventd.pico.rc \
-    device/htc/pico/files/init.pico.usb.rc:root/init.pico.usb.rc
+    device/htc/pico/files/init.pico.usb.rc:root/init.pico.usb.rc \
     
 # Set usb type
 ADDITIONAL_DEFAULT_PROPERTIES += \
@@ -76,8 +77,7 @@ DEVICE_PACKAGE_OVERLAYS += device/htc/pico/overlay
 # Publish that we support the live wallpaper feature.
 PRODUCT_COPY_FILES += \
     packages/wallpapers/LivePicker/android.software.live_wallpaper.xml:/system/etc/permissions/android.software.live_wallpaper.xml 
-
-PRODUCT_PACKAGES += \
+    PRODUCT_PACKAGES += \
     LiveWallpapers \
     LiveWallpapersPicker \
     VisualizationWallpapers \
@@ -89,7 +89,7 @@ PRODUCT_COPY_FILES += \
 
 # Prebuilt Modules
 PRODUCT_COPY_FILES += \
-    device/htc/pico/prebuilt/bcmdhd.ko:system/lib/modules/bcmdhd.ko \
+    device/htc/pico/prebuilt/bcm4330.ko:system/lib/modules/bcmdhd.ko \
     device/htc/pico/prebuilt/kineto_gan.ko:system/lib/modules/kineto_gan.ko 
 
 # Releasetools
@@ -98,12 +98,9 @@ PRODUCT_COPY_FILES += \
 
 # Wifi
 PRODUCT_COPY_FILES += \
-    device/htc/pico/files/etc/wifi/wpa_supplicant.conf:system/etc/wifi/wpa_supplicant.conf \
-    device/htc/pico/files/etc/dhcpd/dhcpcd.conf:system/etc/dhcpcd/dhcpcd.conf \
-    device/htc/pico/prebuilt/etc/firmware/fw_bcm4330.bin:system/etc/firmware/fw_bcm4330.bin \
-    device/htc/pico/prebuilt/etc/firmware/fw_bcm4330_apsta.bin:system/etc/firmware/fw_bcm4330_apsta.bin \
-    device/htc/pico/prebuilt/etc/firmware/fw_bcm4330b2.bin:system/etc/firmware/fw_bcm4330b2.bin \
-    device/htc/pico/prebuilt/etc/firmware/fw_bcm4330b2_apsta.bin:system/etc/firmware/fw_bcm4330b2_apsta.bin
+    device/htc/pico/prebuilt/etc/firmware/fw_bcm4330_b2.bin:system/etc/firmware/fw_bcm4330_b2.bin \
+    device/htc/pico/prebuilt/etc/firmware/fw_bcm4330_apsta_b2.bin:system/etc/firmware/fw_bcm4330_apsta_b2.bin \
+    device/htc/pico/prebuilt/etc/firmware/fw_bcm4330_p2p_b2.bin:system/etc/firmware/fw_bcm4330_p2p_b2.bin
     
 # Audio
 PRODUCT_COPY_FILES += \
@@ -142,6 +139,8 @@ PRODUCT_COPY_FILES += \
 PRODUCT_COPY_FILES += \
     device/htc/pico/prebuilt/etc/firmware/yamato_pfp.fw:system/etc/firmware/yamato_pfp.fw \
     device/htc/pico/prebuilt/etc/firmware/yamato_pm4.fw:system/etc/firmware/yamato_pm4.fw \
+    device/htc/pico/prebuilt/etc/firmware/leia_pfp_470.fw:system/etc/firmware/leia_pfp_470.fw \
+    device/htc/pico/prebuilt/etc/firmware/leia_pm4_470.fw:system/etc/firmware/leia_pm4_470.fw \
     device/htc/pico/prebuilt/lib/libC2D2.so:system/lib/libC2D2.so \
     device/htc/pico/prebuilt/lib/libgsl.so:system/lib/libgsl.so \
     device/htc/pico/prebuilt/lib/libc2d2_z180.so:system/lib/libc2d2_z180.so \
@@ -160,17 +159,16 @@ PRODUCT_COPY_FILES += \
 
 # Audio DSP Profiles
 PRODUCT_COPY_FILES += \
-    device/htc/pico/prebuilt/etc/soundimage/srs_bypass.cfg:system/etc/soundimage/srs_bypass.cfg \
     device/htc/pico/prebuilt/etc/soundimage/srsfx_trumedia_51.cfg:system/etc/soundimage/srsfx_trumedia_51.cfg \
     device/htc/pico/prebuilt/etc/soundimage/srsfx_trumedia_movie.cfg:system/etc/soundimage/srsfx_trumedia_movie.cfg \
     device/htc/pico/prebuilt/etc/soundimage/srsfx_trumedia_voice.cfg:system/etc/soundimage/srsfx_trumedia_voice.cfg \
     device/htc/pico/prebuilt/etc/soundimage/srs_geq10.cfg:system/etc/soundimage/srs_geq10.cfg \
-    device/htc/pico/prebuilt/etc/soundimage/srs_global.cfg:system/etc/soundimage/srs_global.cfg \
     device/htc/pico/prebuilt/etc/soundimage/srsfx_trumedia_music.cfg:system/etc/soundimage/srsfx_trumedia_music.cfg
 
 # Bluetooth
 PRODUCT_COPY_FILES += \
-    device/htc/pico/prebuilt/etc/firmware/BCM4330B1_002.001.003.0221.0228.hcd:system/etc/firmware/BCM4330B1_002.001.003.0221.0228.hcd
+    device/htc/pico/prebuilt/init.qcom.bt.sh:system/bin/init.qcom.bt.sh \
+    device/htc/pico/prebuilt/etc/firmware/BCM4330B1_002.001.003.0221.0228.hcd:system/etc/firmware/BCM4330B1_002.001.003.0221.0228.hcd \
 
 # Keylayouts
 PRODUCT_COPY_FILES += \
@@ -186,13 +184,13 @@ PRODUCT_COPY_FILES += \
     device/htc/pico/prebuilt/usr/keylayout/himax-touchscreen.kl:system/usr/keylayout/himax-touchscreen.kl \
     device/htc/pico/prebuilt/usr/keylayout/synaptics-rmi-touchscreen.kl:system/usr/keylayout/synaptics-rmi-touchscreen.kl \
     device/htc/pico/prebuilt/usr/idc/himax-touchscreen.idc:system/usr/idc/himax-touchscreen.idc \
-    device/htc/pico/prebuilt/usr/idc/synaptics-rmi-touchscreen.idc:system/usr/idc/synaptics-rmi-touchscreen.idc
+    device/htc/pico/prebuilt/usr/idc/synaptics-rmi-touchscreen.idc:system/usr/idc/synaptics-rmi-touchscreen.idc \
 
 # Some build.prop setings
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.com.google.locationfeatures=1 \
     ro.com.google.networklocation=1 \
-    ro.com.google.gmsversion=2.3_r7 \
+    ro.com.google.gmsversion=2.3_r6 \
     ro.setupwizard.enable_bypass=1 \
     dalvik.vm.lockprof.threshold=500 \
     dalvik.vm.dexopt-flags=m=y \
@@ -210,7 +208,6 @@ PRODUCT_PROPERTY_OVERRIDES += \
 PRODUCT_NAME := pico
 PRODUCT_DEVICE := pico
 PRODUCT_MODEL := HTC Explorer A310e
-PRODUCT_BRAND := htc_europe
 
 # Mdpi assets
 PRODUCT_AAPT_CONFIG := normal mdpi
