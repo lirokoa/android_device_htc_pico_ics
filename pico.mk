@@ -151,6 +151,21 @@ PRODUCT_COPY_FILES += \
     device/htc/pico/prebuilt/lib/egl/libGLESv2S3D_adreno200.so:system/lib/egl/libGLESv2S3D_adreno200.so \
     device/htc/pico/prebuilt/lib/egl/libq3dtools_adreno200.so:system/lib/egl/libq3dtools_adreno200.so 
 
+# Camera
+PRODUCT_COPY_FILES += \
+    vendor/htc/pico/proprietary/lib/hw/camera.default.so:system/lib/hw/camera.default.so \
+    vendor/htc/pico/proprietary/lib/liboemcamera.so:system/lib/liboemcamera.so \
+    vendor/htc/pico/proprietary/lib/libmmipl.so:system/lib/libmmipl.so \
+    vendor/htc/pico/proprietary/lib/libmmjpeg.so:system/lib/libmmjpeg.so \
+    vendor/htc/pico/proprietary/lib/libcameraface.so:system/lib/libcameraface.so \
+    vendor/htc/pico/proprietary/lib/libcamerapp.so:system/lib/libcamerapp.so \
+    vendor/htc/pico/proprietary/lib/libOlaEngine.so:system/lib/libOlaEngine.so \
+    vendor/htc/pico/proprietary/lib/libchromatix_mt9t013_default_video.so:system/lib/libchromatix_mt9t013_default_video.so \
+    vendor/htc/pico/proprietary/lib/libchromatix_mt9t013_preview.so:system/lib/libchromatix_mt9t013_preview.so \
+    vendor/htc/pico/proprietary/bin/awb_camera:system/bin/awb_camera \
+    vendor/htc/pico/proprietary/bin/lsc_camera:system/bin/lsc_camera \
+    vendor/htc/pico/proprietary/bin/mm-qcamera-daemon:system/bin/mm-qcamera-daemon 
+
 # RIL
 PRODUCT_COPY_FILES += \
     device/htc/pico/prebuilt/lib/libhtc_ril.so:system/lib/libhtc_ril.so
