@@ -18,7 +18,8 @@ PRODUCT_PACKAGES += \
     libmm-omxcore \
     libOmxCore \
     libOmxVidEnc \
-    libdivxdrmdecrypt
+    libOmxH264Dec \
+    libOmxMpeg4Dec
   
 # Graphics 
 PRODUCT_PACKAGES += \
@@ -26,11 +27,8 @@ PRODUCT_PACKAGES += \
     copybit.msm7x27a \
     hwcomposer.msm7x27a \
     libtilerenderer \
-    libgenlock \
     liboverlay \
     libQcomUI \
-    libmemalloc \
-    libopencorehw
     
 # Audio
 PRODUCT_PACKAGES += \
