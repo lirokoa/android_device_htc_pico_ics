@@ -1,10 +1,11 @@
 import init.pico.usb.rc
 
 on early-init
-    export EXTERNAL_STORAGE /mnt/sdcard
-    mkdir /mnt/sdcard 0000 system system
-    # for backwards compatibility
-    symlink /mnt/sdcard /sdcard
+    export EXTERNAL_STORAGE /storage/sdcard0
+    mkdir /storage 0050 system sdcard_r
+    mkdir /storage/sdcard0 0000 system system
+    symlink /storage/sdcard0 /sdcard
+    symlink /storage/sdcard0 /mnt/sdcard
 
 on post-fs-data
     mkdir /data/misc/wifi 0770 wifi wifi
@@ -56,16 +57,12 @@ on boot
     write /sys/module/lowmemorykiller/parameters/minfile 0,0,0,5120,5632,6144
     write /sys/module/lowmemorykiller/parameters/check_filepages 1
     
-    #usb tethering
+    # usb tethering
     chmod 0777 /sys/class/usb_composite/*
 
     # Fix ipconfig for wifi
     touch /data/misc/wifi/ipconfig.txt
     chmod 0777 /data/misc/wifi/ipconfig.txt
-
-    # flashlight
-    chown system camera /sys/devices/platform/flashlight.0/leds/flashlight/brightness
-    chmod 0660          /sys/devices/platform/flashlight.0/leds/flashlight/brightness
 
     # fix for entropy service and some other that failed
     # Need for NET
@@ -97,8 +94,7 @@ service hciattach /system/bin/logwrapper /system/bin/brcm_patchram_plus -d --no2
 
 service wpa_supplicant /system/bin/wpa_supplicant \
     -Dnl80211 -ieth0 -e/data/misc/wifi/entropy.bin
-#   we will start as root and wpa_supplicant will switch to user wifi
-#   after setting up the capabilities required for WEXT
+
     class main
     socket wpa_eth0 dgram 660 wifi wifi
     disabled
