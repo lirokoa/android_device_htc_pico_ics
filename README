@@ -1,5 +1,19 @@
-Device Config for Htc Explorer(Pico) for building Cyanogen Mod 10(Android 4.1.1 "Jellybean")
+Device Config for Htc Explorer(Pico) for building AOSP/AOSP-based roms
 
-WIP
+Xda Thread- http://forum.xda-developers.com/showthread.php?t=1793026
 
-Xda thread- http://forum.xda-developers.com/showthread.php?t=1847002
+Whats Working-
+ - WiFi
+ - Hardware acceleration(but cud use a lil more speed)
+ - RIL
+ - Gps(next build)
+ - Incall Audio only (libaudio still broken)
+ - Usb Mass Storage
+ - Audio (many need some tweaks)
+ - Bluetooth
+ - Usb tethering
+
+What Doesnt work-
+ - Camera
+ - Video Playback
+ - Everything else
