@@ -28,6 +28,7 @@ TARGET_NO_RADIOIMAGE := true
 
 # Yes we do,but let's hash it out
 TARGET_ARCH_VARIANT := armv7-a-neon
+ARCH_ARM_HAVE_NEON := true
 TARGET_CPU_ABI := armeabi-v7a
 TARGET_CPU_ABI2 := armeabi
 ARCH_ARM_HAVE_TLS_REGISTER := true
@@ -40,7 +41,7 @@ BOARD_KERNEL_CMDLINE := no_console_suspend=1 console=null
 BOARD_KERNEL_BASE := 0x12c00000
 BOARD_PAGE_SIZE := 0x00000800
 
-# Additional librarys
+# Additional libraries
 TARGET_PROVIDES_LIBAUDIO := true
 
 # Fix this up by examining /proc/mtd on a running device
@@ -76,20 +77,21 @@ BOARD_USES_QCOM_LIBS := true
 TARGET_GRALLOC_USES_ASHMEM := true
 
 # Wifi related defines
-BOARD_WPA_SUPPLICANT_DRIVER := NL80211
-WPA_SUPPLICANT_VERSION := VER_0_8_X
-BOARD_WPA_SUPPLICANT_PRIVATE_LIB := lib_driver_cmd_bcmdhd
-BOARD_HOSTAPD_DRIVER        := NL80211
-BOARD_HOSTAPD_PRIVATE_LIB   := lib_driver_cmd_bcmdhd
-BOARD_WLAN_DEVICE           := bcmdhd
-WIFI_DRIVER_FW_PATH_PARAM := "/sys/module/bcmdhd/parameters/firmware_path"
-WIFI_DRIVER_MODULE_PATH := "/system/lib/modules/bcmdhd.ko"
-WIFI_DRIVER_FW_PATH_STA := "/system/etc/firmware/fw_bcm4330_b2.bin"
-WIFI_DRIVER_FW_PATH_AP := "/system/etc/firmware/fw_bcm4330_apsta_b2.bin"
-WIFI_DRIVER_FW_PATH_P2P := "/system/etc/firmware/fw_bcm4330_p2p_b2.bin"
-WIFI_DRIVER_MODULE_NAME := "bcmdhd"
-WIFI_DRIVER_MODULE_ARG := "firmware_path=/system/etc/firmware/fw_bcm4330_b2.bin nvram_path=/proc/calibration iface_name=eth0"
-WIFI_BAND                 := 802_11_ABG
+BOARD_WPA_SUPPLICANT_DRIVER        := NL80211
+WPA_SUPPLICANT_VERSION             := VER_0_8_X
+BOARD_WPA_SUPPLICANT_PRIVATE_LIB   := lib_driver_cmd_bcmdhd
+BOARD_HOSTAPD_DRIVER               := NL80211
+BOARD_HOSTAPD_PRIVATE_LIB          := lib_driver_cmd_bcmdhd
+BOARD_WLAN_DEVICE                  := bcmdhd
+WIFI_DRIVER_FW_PATH_PARAM          := "/sys/module/bcmdhd/parameters/firmware_path"
+WIFI_DRIVER_MODULE_PATH            := "/system/lib/modules/bcmdhd.ko"
+WIFI_DRIVER_FW_PATH_STA            := "/system/etc/firmware/fw_bcm4330_b2.bin"
+WIFI_DRIVER_FW_PATH_AP             := "/system/etc/firmware/fw_bcm4330_apsta_b2.bin"
+WIFI_DRIVER_FW_PATH_P2P            := "/system/etc/firmware/fw_bcm4330_p2p_b2.bin"
+WIFI_DRIVER_MODULE_NAME            := "bcmdhd"
+WIFI_DRIVER_MODULE_ARG             := "firmware_path=/system/etc/firmware/fw_bcm4330_b2.bin nvram_path=/proc/calibration iface_name=eth0"
+WIFI_BAND                          := 802_11_ABG
+BOARD_LEGACY_NL80211_STA_EVENTS    := true
 
 # Misc
 TARGET_BOOTANIMATION_PRELOAD := true
