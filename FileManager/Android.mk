@@ -20,7 +20,7 @@ LOCAL_MODULE_TAGS := optional
 
 LOCAL_SRC_FILES := $(call all-java-files-under, src)
 
-LOCAL_PACKAGE_NAME := GalaxyICS-FileManager
+LOCAL_PACKAGE_NAME := FileManager
 
 include $(BUILD_PACKAGE)
 

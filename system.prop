@@ -122,7 +122,6 @@ ro.media.enc.vid.m4v.height = 144,480
 ro.media.enc.vid.m4v.bps = 64000,1600000
 ro.media.enc.vid.m4v.fps = 1,30
 
-
 # 
 # Increase SKIA decode memory capability for progressive jpg file
 #
@@ -141,4 +140,4 @@ dalvik.vm.heapsize=64m
 # src:vendor/qcom/proprietary/android-perf/release/lib/<CPU arch>/libqc-opt.so
 ro.vendor.extension_library=/system/lib/libqc-opt.so
 debug.camcorder.disablemeta=0
-dalvik.vm.stack-trace-file=/data/anr/traces.txt
+
