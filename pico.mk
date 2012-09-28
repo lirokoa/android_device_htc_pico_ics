@@ -205,5 +205,10 @@ PRODUCT_PROPERTY_OVERRIDES += \
     ro.telephony.call_ring.multiple=false \
     ro.vold.umsdirtyratio=20
     
+PRODUCT_NAME := cm_pico
+PRODUCT_BRAND := htc_europe
+PRODUCT_DEVICE := pico
+PRODUCT_MODEL := HTC Explorer A310e
+PRODUCT_MANUFACTURER := HTC
 PRODUCT_AAPT_CONFIG := normal mdpi
 PRODUCT_AAPT_PREF_CONFIG := mdpi
