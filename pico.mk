@@ -16,7 +16,7 @@
 PRODUCT_COPY_FILES += \
     vendor/htc/pico/proprietary/lib/hw/camera.default.so:obj/lib/hw/camera.default.so \
     device/htc/pico/prebuilt/lib/libreference-ril.so:obj/lib/libreference-ril.so \
-    device/htc/pico/lib/libril.so:obj/lib/libril.so
+    device/htc/pico/prebuilt/lib/libril.so:obj/lib/libril.so
 
 # Video decoding
 PRODUCT_PACKAGES += \
