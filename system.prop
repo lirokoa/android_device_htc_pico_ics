@@ -10,7 +10,6 @@ ro.baseband.arch = msm
 ro.ril.hep = 1
 ro.ril.enable.dtm = 1
 ro.ril.hsdpa.category = 8
-ro.ril.ecc.VODA-Africa-South=112,911,999
 ro.ril.ecc.HTC-GCC=999,112,997
 ro.ril.ecc.HTC-WWE=999
 ro.ril.ecc.HTC-Dutch=112
@@ -20,9 +19,6 @@ ro.ril.ecc.HTC-ITA=112,911
 ro.ril.ecc.HTC-EastEurope=112
 ro.ril.enable.a52.HTC-ITA=1
 ro.ril.enable.a53.HTC-ITA=1
-ro.phone.min_match.HTC__Y13=7
-ro.phone.min_match.HTC__J15=7
-ro.phone.min_match.HTC__016=7
 ro.ril.enable.a52=0
 ro.ril.enable.a53=1
 ro.ril.hsdpa.category=8
@@ -33,16 +29,6 @@ ro.ril.enable.managed.roaming=1
 ro.ril.enable.sdr=1
 ro.ril.enable.amr.wideband=1
 ro.ril.enable.r8fd=0
-ro.ril.vmail.23415=1571,BT,121,VDF UK
-ro.ril.vmail.27203=171
-ro.ril.vmail.65502=181
-ro.ril.vmail.27211=171
-ro.ril.vmail.65510=100
-ro.ril.vmail.22299=4133,3ITA
-ro.ril.vmail.23410=901,O2 UK,905,TESCO,443,giffgaff
-ro.ril.vmail.22201=41901,I TIM
-ro.ril.vmail.22210=42020,Vodafone IT
-ro.ril.vmail.22288=4200,I WIND
 ro.ril.enable.pre_r8fd=1
 ro.ril.fd.pre_r8_tout.scr_off=2
 ro.ril.fd.pre_r8_tout.scr_on=3
@@ -83,17 +69,8 @@ view.touch_slop = 15
 view.minimum_fling_velocity = 25
 view.scroll_friction = 0.008
 
-# For SD storage insert notification sound
-persist.service.mount.playsnd = 0
-
-# For the agps default value
-ro.ril.def.agps.mode = 2
-
 # For no auto focus devices
 ro.workaround.noautofocus = 1
-
-# default value of brightness
-settings.display.brightness=143
 
 # For HSDPA low throughput
 ro.ril.disable.power.collapse=0
