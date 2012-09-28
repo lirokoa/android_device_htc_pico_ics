@@ -16,6 +16,18 @@ on post-fs-data
 on boot
     mount debugfs /sys/kernel/debug /sys/kernel/debug
 
+
+# Define the memory thresholds at which the above process classes will
+# be killed.  These numbers are in pages (4k).
+    setprop ro.FOREGROUND_APP_MEM 3584
+    setprop ro.VISIBLE_APP_MEM 4096
+    setprop ro.SECONDARY_SERVER_MEM 6144
+    setprop ro.BACKUP_APP_MEM 6144
+    setprop ro.HOME_APP_MEM 6144
+    setprop ro.HIDDEN_APP_MEM 7168
+    setprop ro.CONTENT_PROVIDER_MEM 7680
+    setprop ro.EMPTY_APP_MEM 8192
+
     # bluetooth power up/down interface
     chown bluetooth bluetooth /dev/ttyHS0
     chmod 0600 /dev/ttyHS0
@@ -59,6 +71,10 @@ on boot
     
     # usb tethering
     chmod 0777 /sys/class/usb_composite/*
+
+    # For FM radio/music
+    mkdir /data/data/shared
+    chmod 0777 /data/data/shared
 
     # Fix ipconfig for wifi
     touch /data/misc/wifi/ipconfig.txt

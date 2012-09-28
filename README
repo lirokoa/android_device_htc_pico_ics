@@ -1,3 +1,10 @@
 Device Config for Htc Explorer(Pico) for building CM10
 
-Extreme Wip,just boots
+What works
+
+- Audio
+- Sd card
+- Hardware acceleration
+- Bluetooth
+- Project butter(almost)
+- RIL(Unstable mobile data)
