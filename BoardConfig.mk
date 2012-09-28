@@ -51,7 +51,7 @@ BOARD_FLASH_BLOCK_SIZE := 262144
 # Prebuilt kernel
 TARGET_PREBUILT_KERNEL := device/htc/pico/prebuilt/kernel
 
-# Audio(WIP)
+# Audio
 TARGET_PROVIDES_LIBAUDIO := true
 BOARD_USES_ICS_LIBAUDIO := true
 BOARD_USES_AUDIO_LEGACY := false
@@ -70,6 +70,7 @@ BOARD_UMS_LUNFILE := "/sys/devices/platform/usb_mass_storage/lun0/file"
 BOARD_HAVE_BLUETOOTH := true
 BOARD_HAVE_BLUETOOTH_BCM := true
 
+# Headers
 TARGET_SPECIFIC_HEADER_PATH := device/htc/pico/include
 
 # OpenGL drivers config file path
