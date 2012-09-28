@@ -12,6 +12,12 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
+# Prebuilt libraries which are needed to build open-source libraries
+PRODUCT_COPY_FILES += \
+    vendor/htc/pico/proprietary/lib/hw/camera.default.so:obj/lib/hw/camera.default.so \
+    device/htc/pico/prebuilt/lib/libreference-ril.so:obj/lib/libreference-ril.so \
+    device/htc/pico/lib/libril.so:obj/lib/libril.so
+
 # Video decoding
 PRODUCT_PACKAGES += \
     libstagefrighthw \
@@ -157,6 +163,7 @@ PRODUCT_COPY_FILES += \
 # RIL
 PRODUCT_COPY_FILES += \
     vendor/htc/pico/proprietary/lib/libhtc_ril.so:system/lib/libhtc_ril.so \
+    device/htc/pico/prebuilt/lib/libreference-ril.so:system/lib/libreference-ril.so \
     vendor/htc/pico/proprietary/lib/libqc-opt.so:system/lib/libqc-opt.so
     
 # Audio DSP Profiles
