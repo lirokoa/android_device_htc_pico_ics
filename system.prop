@@ -4,7 +4,6 @@
 
 rild.libpath=/system/lib/libhtc_ril.so
 rild.libargs=-d /dev/smd0
-rild.libpath.ganlite=/system/lib/librilswitch.so
 rilswitch.vendorlibpath=/system/lib/libhtc_ril.so
 ril.subscription.types=NV,RUIM
 ro.baseband.arch = msm
@@ -113,30 +112,19 @@ ro.ril.avoid.pdp.overlap = 1
 # WARNING: We may not use system properties for specifying
 # media capabilities and profiles in the future
 #
-ro.media.enc.file.format = 3gp,mp4
-ro.media.enc.vid.codec = m4v,h263
-ro.media.enc.vid.h263.width = 176,640
+ro.media.enc.file.format     = 3gp,mp4
+ro.media.enc.vid.codec       = m4v,h263
+ro.media.enc.vid.h263.width  = 176,640
 ro.media.enc.vid.h263.height = 144,480
-ro.media.enc.vid.h263.bps = 64000,1600000
-ro.media.enc.vid.h263.fps = 1,30
-ro.media.enc.vid.m4v.width = 176,640
-ro.media.enc.vid.m4v.height = 144,480
-ro.media.enc.vid.m4v.bps = 64000,1600000
-ro.media.enc.vid.m4v.fps = 1,30
-
-# 
-# Increase SKIA decode memory capability for progressive jpg file
-#
-ro.media.dec.jpeg.memcap 	= 20000000
-
-htc.audio.alc.enable = 1 
+ro.media.enc.vid.h263.bps    = 64000,1600000
+ro.media.enc.vid.h263.fps    = 1,30
+ro.media.enc.vid.m4v.width   = 176,640
+ro.media.enc.vid.m4v.height  = 144,480
+ro.media.enc.vid.m4v.bps     = 64000,1600000
+ro.media.enc.vid.m4v.fps     = 1,30
+ro.media.dec.jpeg.memcap     = 20000000
+htc.audio.alc.enable   = 1 
 htc.audio.swalt.enable = 1 
-
-com.qc.hdmi_out=false 
-com.qc.hardware=true
-
-debug.sf.hw = 1
-dalvik.vm.heapsize=64m
 
 # For QC perf binary hooks
 # src:vendor/qcom/proprietary/android-perf/release/lib/<CPU arch>/libqc-opt.so
@@ -153,6 +141,7 @@ ro.kernel.android.checkjni=0
 # Misc.
 DEVICE_PROVISIONED=1
 debug.sf.hw=1
+dalvik.vm.heapsize=64m
 debug.composition.7x27A.type=mdp
 media.stagefright.enable-player=true
 media.stagefright.enable-scan=true
@@ -172,7 +161,6 @@ com.qc.hardware=true
 com.qc.hdmi_out=false
 debug.camcorder.disablemeta=0
 ro.media.enc.jpeg.quality=100
-ro.media.dec.jpeg.memcap=20000000
 ro.setupwizard.mode=OPTIONAL
 hwui.print_config=choice
 hwui.disable_vsync=true 

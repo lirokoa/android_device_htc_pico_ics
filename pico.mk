@@ -17,7 +17,6 @@ PRODUCT_PACKAGES += \
     libstagefrighthw \
     libmm-omxcore \
     libOmxCore \
-    libOmxVidEnc \
     libOmxH264Dec \
     libOmxMpeg4Dec
     
@@ -128,10 +127,11 @@ PRODUCT_COPY_FILES += \
     device/htc/pico/prebuilt/etc/AudioPara4_WB.csv:system/etc/AudioPara4_WB.csv \
     device/htc/pico/prebuilt/etc/AudioPreProcess.csv:system/etc/AudioPreProcess.csv \
     device/htc/pico/prebuilt/etc/AudioFilter_HP.csv:system/etc/AudioFilter_HP.csv \
-    vendor/htc/pico/proprietary/lib/libaudioeq.so:system/lib/libaudioeq.so \
-    vendor/htc/pico/proprietary/lib/libhtc_acoustic.so:system/lib/libhtc_acoustic.so \
-    
-
+    device/htc/pico/prebuilt/lib/libaudioeq.so:system/lib/libaudioeq.so \
+    device/htc/pico/prebuilt/hw/audio.primary.msm7x27a.so:system/lib/hw/audio.primary.msm7x27a.so \
+    device/htc/pico/prebuilt/hw/audio_policy.msm7x27a.so:system/lib/hw/audio_policy.msm7x27a.so \
+    vendor/htc/pico/proprietary/lib/libhtc_acoustic.so:system/lib/libhtc_acoustic.so
+      
 # Gingerbread Legacy Sensors(still work good,need source for bma150 without ecompass)
 PRODUCT_COPY_FILES += \
     device/htc/pico/prebuilt/lib/hw/sensors.pico.so:system/lib/hw/sensors.pico.so

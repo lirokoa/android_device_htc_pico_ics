@@ -6,8 +6,6 @@ DEVICE_PACKAGE_OVERLAYS += device/htc/pico/overlay
 
 # Inherit from those products. Most specific first.
 $(call inherit-product, vendor/cm/config/gsm.mk)
-$(call inherit-product, $(SRC_TARGET_DIR)/product/languages_full.mk)
-$(call inherit-product, $(SRC_TARGET_DIR)/product/full_base_telephony.mk)
 $(call inherit-product, device/common/gps/gps_eu_supl.mk)
 $(call inherit-product, vendor/cm/config/common_mini_phone.mk)
 $(call inherit-product, build/target/product/full.mk)
