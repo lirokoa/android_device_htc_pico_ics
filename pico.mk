@@ -12,13 +12,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-# Prebuilt libraries which are needed to build open-source libraries
-PRODUCT_COPY_FILES += \
-    vendor/htc/pico/proprietary/lib/hw/camera.default.so:obj/lib/hw/camera.default.so \
-    device/htc/pico/prebuilt/lib/libreference-ril.so:obj/lib/libreference-ril.so \
-    device/htc/pico/prebuilt/lib/libril.so:obj/lib/libril.so
-
-# Video decoding
+l# Video decoding
 PRODUCT_PACKAGES += \
     libstagefrighthw \
     libmm-omxcore \
@@ -129,8 +123,6 @@ PRODUCT_COPY_FILES += \
     device/htc/pico/prebuilt/bcmdhd.ko:system/lib/modules/bcmdhd.ko \
     device/htc/pico/prebuilt/kineto_gan.ko:system/lib/modules/kineto_gan.ko \
     device/htc/pico/prebuilt/turbo:system/bin \
-    device/htc/pico/prebuilt/htc_ebdlogd:system/bin \
-    device/htc/pico/prebuilt/bma150_usr:system/bin 
 
 # Wifi
 PRODUCT_COPY_FILES += \
@@ -176,7 +168,6 @@ PRODUCT_COPY_FILES += \
 # RIL
 PRODUCT_COPY_FILES += \
     vendor/htc/pico/proprietary/lib/libhtc_ril.so:system/lib/libhtc_ril.so \
-    device/htc/pico/prebuilt/lib/libreference-ril.so:system/lib/libreference-ril.so \
     vendor/htc/pico/proprietary/lib/libqc-opt.so:system/lib/libqc-opt.so
     
 # Audio DSP Profiles
