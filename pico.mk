@@ -51,7 +51,8 @@ PRODUCT_PACKAGES += \
     
 # Camera
 PRODUCT_PACKAGES += \
-    camera.default    
+    camera.default \
+    LegacyCamera   
     
 # Misc
 PRODUCT_PACKAGES += \

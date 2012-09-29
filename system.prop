@@ -7,9 +7,6 @@ rild.libargs=-d /dev/smd0
 rilswitch.vendorlibpath=/system/lib/libhtc_ril.so
 ril.subscription.types=NV,RUIM
 ro.baseband.arch = msm
-ro.ril.hep = 1
-ro.ril.enable.dtm = 1
-ro.ril.hsdpa.category = 8
 ro.ril.ecc.HTC-GCC=999,112,997
 ro.ril.ecc.HTC-WWE=999
 ro.ril.ecc.HTC-Dutch=112
@@ -26,23 +23,17 @@ ro.ril.hsxpa=1
 ro.ril.fast.dormancy.rule=1
 ro.ril.disable.fd.plmn.prefix=23402,23410,23411,23420,27202
 ro.ril.enable.managed.roaming=1
-ro.ril.enable.sdr=1
-ro.ril.enable.amr.wideband=1
-ro.ril.enable.r8fd=0
-ro.ril.enable.pre_r8fd=1
-ro.ril.fd.pre_r8_tout.scr_off=2
-ro.ril.fd.pre_r8_tout.scr_on=3
-ro.ril.fd.r8_tout.scr_off=0
-ro.ril.fd.r8_tout.scr_on=0
 ro.ril.gprsclass=10
-ro.telephony.ril.v3=signalstrength
+ro.ril.oem.nosim.ecclist=911,112,999,000,08,118,120,122,110,119,995 \
+ro.ril.emc.mode=2 \
+ro.telephony.ril.v3=signalstrength,singlepdp,skipbrokendatacall \
+ro.ril.htcmaskw1.bitmask = 4294967295
+ro.ril.htcmaskw1 = 14449
 ro.ril.update.acoustic.table = 1
 
 # Modify MMS APN retry timer from 5s to 2s.
 ro.gsm.2nd_data_retry_config = max_retries=3, 5000, 5000, 5000
 
-ro.ril.htcmaskw1.bitmask = 4294967295
-ro.ril.htcmaskw1 = 14449
 # Time between scans in seconds. Keep it high to minimize battery drain.
 # This only affects the case in which there are remembered access points,
 # but none are in range.
@@ -146,8 +137,4 @@ ro.media.dec.aud.wma.enabled=1
 ro.media.dec.vid.wmv.enabled=1
 ro.config.sync=yes
 ro.phone_storage=0
-media.video.max-width=854
-media.video.max-height=480
-media.divx-video.max-width=854
-media.divx-video.max-height=480
 ro.hw_plat=7x27a
