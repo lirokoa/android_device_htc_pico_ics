@@ -12,7 +12,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-l# Video decoding
+# Video decoding
 PRODUCT_PACKAGES += \
     libstagefrighthw \
     libmm-omxcore \
@@ -84,6 +84,7 @@ PRODUCT_COPY_FILES += \
     vendor/htc/pico/proprietary/bin/lsc_camera:system/bin/lsc_camera \
     vendor/htc/pico/proprietary/bin/mm-qcamera-daemon:system/bin/mm-qcamera-daemon \
     device/htc/pico/prebuilt/etc/media_profiles.xml:system/etc/media_profiles.xml \
+    device/htc/pico/prebuilt/etc/media_profiles.xml:system/etc/media_codecs.xml
     
 # OMX
 PRODUCT_COPY_FILES += \
