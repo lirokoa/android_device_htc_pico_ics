@@ -85,6 +85,7 @@ PRODUCT_COPY_FILES += \
     vendor/htc/pico/proprietary/lib/libchromatix_s5k4e1_ar.so:system/lib/libchromatix_s5k4e1_ar.so \
     vendor/htc/pico/proprietary/lib/libchromatix_s5k4e1_default_video.so:system/lib/libchromatix_s5k4e1_default_video.so \
     vendor/htc/pico/proprietary/lib/libchromatix_s5k4e1_preview.so:system/lib/libchromatix_s5k4e1_preview.so \
+    device/htc/pico/prebuilt/lib/libsurfaceflinger_client.so:system/lib/libsurfaceflinger_client.so \
     vendor/htc/pico/proprietary/bin/awb_camera:system/bin/awb_camera \
     vendor/htc/pico/proprietary/bin/lsc_camera:system/bin/lsc_camera \
     vendor/htc/pico/proprietary/bin/mm-qcamera-daemon:system/bin/mm-qcamera-daemon \
