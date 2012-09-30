@@ -9,6 +9,7 @@ $(call inherit-product, vendor/cm/config/gsm.mk)
 $(call inherit-product, device/common/gps/gps_eu_supl.mk)
 $(call inherit-product, vendor/cm/config/common_mini_phone.mk)
 $(call inherit-product, build/target/product/full.mk)
+$(call inherit-product, frameworks/native/build/phone-hdpi-512-dalvik-heap.mk)
 
 # Inherit device configuration
 $(call inherit-product, device/htc/pico/pico.mk)
@@ -39,5 +40,5 @@ PRODUCT_BUILD_PROP_OVERRIDES += PRODUCT_NAME=pico BUILD_ID=JR003R BUILD_FINGERPR
 
 # Release name and versioning
 PRODUCT_RELEASE_NAME := pico
-PRODUCT_VERSION_DEVICE_SPECIFIC := -UNOFFICIAL-ALPHA1
+PRODUCT_VERSION_DEVICE_SPECIFIC := -UNOFFICIAL-ALPHA2
 CM_RELEASE := true

@@ -26,7 +26,7 @@ TARGET_BOARD_PLATFORM_GPU := qcom-adreno200
 TARGET_NO_BOOTLOADER := true
 TARGET_NO_RADIOIMAGE := true
 
-# Yes we do,but let's hash it out
+# Arch
 TARGET_ARCH_VARIANT := armv7-a-neon
 ARCH_ARM_HAVE_NEON := true
 TARGET_CPU_ABI := armeabi-v7a
@@ -61,7 +61,6 @@ COMMON_GLOBAL_CFLAGS += -DICS_AUDIO_BLOB
 BOARD_VOLD_MAX_PARTITIONS := 24
 BOARD_VOLD_EMMC_SHARES_DEV_MAJOR := true
 BOARD_VOLD_DISC_HAS_MULTIPLE_MAJORS := true
-
 BOARD_USE_USB_MASS_STORAGE_SWITCH := true
 TARGET_USE_CUSTOM_LUN_FILE_PATH := "/sys/devices/platform/usb_mass_storage/lun0/file"
 BOARD_UMS_LUNFILE := "/sys/devices/platform/usb_mass_storage/lun0/file"
@@ -97,9 +96,6 @@ WIFI_DRIVER_MODULE_ARG             := "firmware_path=/system/etc/firmware/fw_bcm
 WIFI_BAND                          := 802_11_ABG
 BOARD_LEGACY_NL80211_STA_EVENTS    := true
 
-# Misc
-TARGET_BOOTANIMATION_PRELOAD := true
-
 # Releasetools
 TARGET_RELEASETOOLS_EXTENSIONS := device/htc/pico/releasetools
 TARGET_RELEASETOOL_OTA_FROM_TARGET_SCRIPT := device/htc/pico/releasetools/ota_from_target_files
@@ -108,9 +104,6 @@ TARGET_RELEASETOOL_OTA_FROM_TARGET_SCRIPT := device/htc/pico/releasetools/ota_fr
 BOARD_USES_QCOM_GPS := true
 BOARD_VENDOR_QCOM_GPS_LOC_API_HARDWARE := pico
 BOARD_VENDOR_QCOM_GPS_LOC_API_AMSS_VERSION := 50000
-
-# Misc
-TARGET_BOOTANIMATION_PRELOAD := true
 
 # Graphics
 BOARD_USE_SKIA_LCDTEXT := true
@@ -134,9 +127,6 @@ COMMON_GLOBAL_CFLAGS += -DRIL_VERSION_2_SUPPORT
 TARGET_BOOTANIMATION_USE_RGB565 := true
 TARGET_BOOTANIMATION_PRELOAD := false
 TARGET_BOOTANIMATION_TEXTURE_CACHE := true
-
-# Misc.
-TARGET_NO_INITLOGO := true
 
 # Jellybean Compatibility
 TARGET_CPU_SMP := true

@@ -4,7 +4,16 @@ What works
 
 - Audio
 - Sd card
+- Wifi,Wifi hotspot
 - Hardware acceleration
 - Bluetooth
+- Camera
+- Wifi hotspot
+- GPS
 - Project butter(almost)
-- RIL(Unstable mobile data)
+- RIL(but unstable mobile data)
+
+What doesnt
+
+- Panorama mode has artefacts
+- OMX

@@ -57,7 +57,7 @@ PRODUCT_PACKAGES += \
 PRODUCT_COPY_FILES += \
     device/htc/pico/files/init.pico.rc:root/init.pico.rc \
     device/htc/pico/files/ueventd.pico.rc:root/ueventd.pico.rc \
-    device/htc/pico/files/init.pico.usb.rc:root/init.pico.usb.rc \
+    device/htc/pico/files/init.pico.usb.rc:root/init.pico.usb.rc
     
 # Camera
 PRODUCT_COPY_FILES += \
@@ -70,21 +70,12 @@ PRODUCT_COPY_FILES += \
     vendor/htc/pico/proprietary/lib/libOlaEngine.so:system/lib/libOlaEngine.so \
     vendor/htc/pico/proprietary/lib/libchromatix_mt9t013_default_video.so:system/lib/libchromatix_mt9t013_default_video.so \
     vendor/htc/pico/proprietary/lib/libchromatix_mt9t013_preview.so:system/lib/libchromatix_mt9t013_preview.so \
-    vendor/htc/pico/proprietary/lib/libchromatix_imx074_default_video.so:system/lib/libchromatix_imx074_default_video.so \
-    vendor/htc/pico/proprietary/lib/libchromatix_imx074_preview.so:system/lib/libchromatix_imx074_preview.so \
-    vendor/htc/pico/proprietary/lib/libchromatix_ov2720_default_video.so:system/lib/libchromatix_ov2720_default_video.so \
-    vendor/htc/pico/proprietary/lib/libchromatix_ov2720_preview.so:system/lib/libchromatix_ov2720_preview.so \
-    vendor/htc/pico/proprietary/lib/libchromatix_ov8810_default_video.so:system/lib/libchromatix_ov8810_default_video.so \
-    vendor/htc/pico/proprietary/lib/libchromatix_ov8810_preview.so:system/lib/libchromatix_ov8810_preview.so \
-    vendor/htc/pico/proprietary/lib/libchromatix_s5k4e1_ar.so:system/lib/libchromatix_s5k4e1_ar.so \
-    vendor/htc/pico/proprietary/lib/libchromatix_s5k4e1_default_video.so:system/lib/libchromatix_s5k4e1_default_video.so \
-    vendor/htc/pico/proprietary/lib/libchromatix_s5k4e1_preview.so:system/lib/libchromatix_s5k4e1_preview.so \
     device/htc/pico/prebuilt/lib/libsurfaceflinger_client.so:system/lib/libsurfaceflinger_client.so \
     vendor/htc/pico/proprietary/bin/awb_camera:system/bin/awb_camera \
     vendor/htc/pico/proprietary/bin/lsc_camera:system/bin/lsc_camera \
-    vendor/htc/pico/proprietary/bin/mm-qcamera-daemon:system/bin/mm-qcamera-daemon \
     device/htc/pico/prebuilt/etc/media_profiles.xml:system/etc/media_profiles.xml \
-    device/htc/pico/prebuilt/etc/media_profiles.xml:system/etc/media_codecs.xml
+    device/htc/pico/prebuilt/etc/media_profiles.xml:system/etc/media_codecs.xml \
+    vendor/htc/pico/proprietary/bin/mm-qcamera-daemon:system/bin/mm-qcamera-daemon
     
 # OMX
 PRODUCT_COPY_FILES += \
@@ -95,7 +86,7 @@ PRODUCT_COPY_FILES += \
     vendor/htc/pico/proprietary/lib/libmmosal.so:system/lib/libmmosal.so \
     vendor/htc/pico/proprietary/lib/libmmparser.so:system/lib/libmmparser.so \
     vendor/htc/pico/proprietary/lib/libmmparser_divxdrmlib.so:system/lib/libmmparser_divxdrmlib.so \
-    vendor/htc/pico/proprietary/lib/libdivxdrmdecrypt.so:system/lib/libdivxdrmdecrypt.so \
+    vendor/htc/pico/proprietary/lib/libdivxdrmdecrypt.so:system/lib/libdivxdrmdecrypt.so
     
 # Set usb type
 ADDITIONAL_DEFAULT_PROPERTIES += \
@@ -105,7 +96,8 @@ ADDITIONAL_DEFAULT_PROPERTIES += \
 # Publish that we support the live wallpaper feature.
 PRODUCT_COPY_FILES += \
     packages/wallpapers/LivePicker/android.software.live_wallpaper.xml:/system/etc/permissions/android.software.live_wallpaper.xml 
-    PRODUCT_PACKAGES += \
+
+PRODUCT_PACKAGES += \
     LiveWallpapers \
     LiveWallpapersPicker \
     VisualizationWallpapers \
@@ -121,15 +113,17 @@ PRODUCT_COPY_FILES += \
 
 # Prebuilt Modules
 PRODUCT_COPY_FILES += \
+    device/htc/pico/files/etc/wifi/wpa_supplicant.conf:system/etc/wifi/wpa_supplicant.conf \
+    device/htc/pico/files/etc/dhcpd/dhcpcd.conf:system/etc/dhcpcd/dhcpcd.conf \
     device/htc/pico/prebuilt/bcmdhd.ko:system/lib/modules/bcmdhd.ko \
     device/htc/pico/prebuilt/kineto_gan.ko:system/lib/modules/kineto_gan.ko \
-    device/htc/pico/prebuilt/turbo:system/bin \
+    device/htc/pico/prebuilt/turbo:system/bin
 
 # Wifi
 PRODUCT_COPY_FILES += \
     device/htc/pico/prebuilt/etc/firmware/fw_bcm4330_b2.bin:system/etc/firmware/fw_bcm4330_b2.bin \
     device/htc/pico/prebuilt/etc/firmware/fw_bcm4330_apsta_b2.bin:system/etc/firmware/fw_bcm4330_apsta_b2.bin \
-    device/htc/pico/prebuilt/etc/firmware/fw_bcm4330_p2p_b2.bin:system/etc/firmware/fw_bcm4330_p2p_b2.bin \
+    device/htc/pico/prebuilt/etc/firmware/fw_bcm4330_p2p_b2.bin:system/etc/firmware/fw_bcm4330_p2p_b2.bin
     
 # Audio
 PRODUCT_COPY_FILES += \
@@ -179,11 +173,11 @@ PRODUCT_COPY_FILES += \
     device/htc/pico/prebuilt/etc/soundimage/srsfx_trumedia_movie.cfg:system/etc/soundimage/srsfx_trumedia_movie.cfg \
     device/htc/pico/prebuilt/etc/soundimage/srsfx_trumedia_voice.cfg:system/etc/soundimage/srsfx_trumedia_voice.cfg \
     device/htc/pico/prebuilt/etc/soundimage/srs_geq10.cfg:system/etc/soundimage/srs_geq10.cfg \
-    device/htc/pico/prebuilt/etc/soundimage/srsfx_trumedia_music.cfg:system/etc/soundimage/srsfx_trumedia_music.cfg \
+    device/htc/pico/prebuilt/etc/soundimage/srsfx_trumedia_music.cfg:system/etc/soundimage/srsfx_trumedia_music.cfg
 
 # Bluetooth
 PRODUCT_COPY_FILES += \
-    vendor/htc/pico/proprietary/etc/firmware/BCM4330B1_002.001.003.0221.0228.hcd:system/etc/firmware/BCM4330B1_002.001.003.0221.0228.hcd \
+    vendor/htc/pico/proprietary/etc/firmware/BCM4330B1_002.001.003.0221.0228.hcd:system/etc/firmware/BCM4330B1_002.001.003.0221.0228.hcd
 
 # Keylayouts
 PRODUCT_COPY_FILES += \
@@ -197,7 +191,7 @@ PRODUCT_COPY_FILES += \
     device/htc/pico/prebuilt/usr/keylayout/himax-touchscreen.kl:system/usr/keylayout/himax-touchscreen.kl \
     device/htc/pico/prebuilt/usr/keylayout/synaptics-rmi-touchscreen.kl:system/usr/keylayout/synaptics-rmi-touchscreen.kl \
     device/htc/pico/prebuilt/usr/idc/himax-touchscreen.idc:system/usr/idc/himax-touchscreen.idc \
-    device/htc/pico/prebuilt/usr/idc/synaptics-rmi-touchscreen.idc:system/usr/idc/synaptics-rmi-touchscreen.idc \
+    device/htc/pico/prebuilt/usr/idc/synaptics-rmi-touchscreen.idc:system/usr/idc/synaptics-rmi-touchscreen.idc
 
 # HardwareRenderer properties
 PRODUCT_PROPERTY_OVERRIDES += \
