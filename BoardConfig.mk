@@ -91,7 +91,6 @@ WIFI_DRIVER_FW_PATH_P2P            := "/system/etc/firmware/fw_bcm4330_p2p_b2.bi
 WIFI_DRIVER_MODULE_NAME            := "bcmdhd"
 WIFI_DRIVER_MODULE_ARG             := "firmware_path=/system/etc/firmware/fw_bcm4330_b2.bin nvram_path=/proc/calibration iface_name=eth0"
 WIFI_BAND                          := 802_11_ABG
-BOARD_LEGACY_NL80211_STA_EVENTS    := true
 
 # Releasetools
 TARGET_RELEASETOOLS_EXTENSIONS := device/htc/pico/releasetools
