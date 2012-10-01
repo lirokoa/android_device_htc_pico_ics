@@ -117,6 +117,7 @@ TARGET_QCOM_HDMI_OUT := false
 BOARD_HAS_NO_SELECT_BUTTON := true
 
 # RIL
+BOARD_PROVIDES_LIBRIL := true
 BOARD_USE_NEW_LIBRIL_HTC := true
 
 # Add h/w acceleration in browser :)
