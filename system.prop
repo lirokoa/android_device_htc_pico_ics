@@ -135,7 +135,7 @@ com.qc.hdmi_out=false
 com.qc.hardware=true
 
 debug.sf.hw = 1
-dalvik.vm.heapsize=64m
+dalvik.vm.heapsize=48m
 
 # For QC perf binary hooks
 # src:vendor/qcom/proprietary/android-perf/release/lib/<CPU arch>/libqc-opt.so
