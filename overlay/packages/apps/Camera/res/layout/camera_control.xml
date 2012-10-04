@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.android.camera.ui.ControlPanelLayout xmlns:android="http://schemas.android.com/apk/res/android"
+      android:id="@+id/control_panel"
+      android:background="@drawable/bg_camera_pattern"
+      android:layout_width="fill_parent"
+      android:layout_height="wrap_content"
+      android:minHeight="76.0dip">
+    <include layout="@layout/review_thumbnail" />
+    <include layout="@layout/review_control" />
+    <com.android.camera.ShutterButton 
+	    android:id="@+id/shutter_button"
+	    android:background="@drawable/btn_shutter"
+	    android:focusable="true"
+	    android:clickable="true" 
+	    android:layout_width="47.0px"
+	    android:layout_height="47.0px"
+	    android:scaleType="center"
+	    android:layout_centerInParent="true"
+	    android:contentDescription="@string/accessibility_shutter_button" />
+    <include layout="@layout/mode_picker" />
+</com.android.camera.ui.ControlPanelLayout>
