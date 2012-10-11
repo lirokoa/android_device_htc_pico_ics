@@ -116,7 +116,6 @@ ADDITIONAL_DEFAULT_PROPERTIES += \
     persist.sys.usb.config=mass_storage \
     persist.service.adb.enable=1
 
-
 # Publish that we support the live wallpaper feature.
 PRODUCT_COPY_FILES += \
     packages/wallpapers/LivePicker/android.software.live_wallpaper.xml:/system/etc/permissions/android.software.live_wallpaper.xml 
