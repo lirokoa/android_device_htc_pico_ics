@@ -3,6 +3,9 @@ app/VideoEditor.apk
 lib/libvideoeditor_jni.so
 lib/libvideoeditorplayer.so
 
+# RomManager (2.5MB)
+app/RomManager.apk
+
 # CM Wallpapers (7MB)
 app/CMWallpapers.apk
 
@@ -13,12 +16,18 @@ app/Galaxy4.apk
 app/PhaseBeam.apk
 
 # Fonts (11.9MB)
-fonts/DroidSansArmenian.ttf
+#fonts/DroidSansArmenian.ttf
+fonts/DroidSansDevanagari-Regular.ttf
 fonts/DroidSansEthiopic-Regular.ttf
 fonts/DroidSansGeorgian.ttf
 fonts/DroidSansHebrew-Bold.ttf
 fonts/DroidSansHebrew-Regular.ttf
+# fonts/DroidSansTamil-Bold.ttf
+# fonts/DroidSansTamil-Regular.ttf
 fonts/DroidSansThai.ttf
+#fonts/Lohit-Bengali.ttf
+#fonts/Lohit-Kannada.ttf
+#fonts/Lohit-Telugu.ttf
 fonts/MTLmr3m.ttf
 fonts/NanumGothic.ttf
 fonts/NanumGothicBold.ttf
