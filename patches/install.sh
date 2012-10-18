@@ -3,7 +3,7 @@
 # Modified to work for pico #
 
 echo "Obtaining build directory..."
-rootdirectory="$PWD"
+rootdirectory="~/cm10"
 cd packages/apps/LegacyCamera
 echo "Applying LegacyCamera patches..."
 git am $rootdirectory/device/htc/pico/patches/packages_apps_LegacyCamera/0001-load-correct-library-panorama.patch
