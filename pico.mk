@@ -54,7 +54,8 @@ PRODUCT_PACKAGES += \
 # Misc
 PRODUCT_PACKAGES += \
     com.android.future.usb.accessory \
-    FileManager
+    FileManager \
+    LegacyCamera
 
 # Hardware properties 
 PRODUCT_COPY_FILES += \
