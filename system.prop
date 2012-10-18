@@ -33,6 +33,7 @@ ro.media.dec.jpeg.memcap 	= 20000000
 
 htc.audio.alc.enable = 1 
 htc.audio.swalt.enable = 1 
+dalvik.vm.heapsize=48m
 
 com.qc.hdmi_out=false 
 com.qc.hardware=true
@@ -41,4 +42,3 @@ debug.enabletr=false
 debug.hwui.render_dirty_regions=false
 persist.sys.use_dithering=2
 debug.camcorder.disablemeta=0
-dalvik.vm.stack-trace-file=/data/anr/traces.txt

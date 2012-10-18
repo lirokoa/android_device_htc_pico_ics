@@ -15,8 +15,9 @@
 
 USE_CAMERA_STUB := true
 
-TARGET_GLOBAL_CFLAGS += -mfpu=neon -mfloat-abi=softfp
+TARGET_GLOBAL_CFLAGS   += -mfpu=neon -mfloat-abi=softfp
 TARGET_GLOBAL_CPPFLAGS += -mfpu=neon -mfloat-abi=softfp
+COMMON_GLOBAL_CFLAGS   += -DQCOM_HARDWARE -DREFRESH_RATE=65
 
 # Arch related defines
 TARGET_BOARD_PLATFORM := msm7x27a
@@ -153,7 +154,6 @@ WITH_JIT := true
 ENABLE_JSC_JIT := true
 JS_ENGINE := v8
 HTTP := chrome
-COMMON_GLOBAL_CFLAGS += -DQCOM_HARDWARE -DREFRESH_RATE=65
 
 # Touch screen compatibility for ICS
 BOARD_USE_LEGACY_TOUCHSCREEN := true
