@@ -1,5 +1,6 @@
-# Prepare for new BootAnimation
-TARGET_BOOTANIMATION_NAME := vertical-320x480
+# Boot animation
+TARGET_SCREEN_HEIGHT := 320
+TARGET_SCREEN_WIDTH := 480
 
 # Include GSM stuff
 $(call inherit-product, vendor/cm/config/gsm.mk)
@@ -13,7 +14,7 @@ $(call inherit-product, device/htc/pico/pico.mk)
 
 # Release name and versioning
 PRODUCT_RELEASE_NAME := pico
-PRODUCT_VERSION_DEVICE_SPECIFIC := -UNOFFICIAL-ALPHA-5
+PRODUCT_VERSION_DEVICE_SPECIFIC := -UNOFFICIAL-BETA-1
 CM_RELEASE := true
 
 # Product name
