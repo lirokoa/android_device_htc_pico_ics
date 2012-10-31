@@ -54,7 +54,6 @@ PRODUCT_PACKAGES += \
 # Misc
 PRODUCT_PACKAGES += \
     com.android.future.usb.accessory \
-    FileManager \
     LegacyCamera
 
 # Hardware properties 
@@ -135,7 +134,6 @@ PRODUCT_COPY_FILES += \
 PRODUCT_COPY_FILES += \
     device/htc/pico/prebuilt/bcmdhd.ko:system/lib/modules/bcmdhd.ko \
     device/htc/pico/prebuilt/kineto_gan.ko:system/lib/modules/kineto_gan.ko \
-    device/htc/pico/prebuilt/cifs.ko:system/lib/modules/cifs.ko \
     device/htc/pico/prebuilt/tun.ko:system/lib/modules/tun.ko \
     
 # Wifi
@@ -187,6 +185,15 @@ PRODUCT_COPY_FILES += \
     device/htc/pico/prebuilt/lib/pp_proc_plugin.so:system/lib/pp_proc_plugin.so \
     device/htc/pico/prebuilt/lib/qnet-plugin.so:system/lib/qnet-plugin.so \
     device/htc/pico/prebuilt/lib/tcp-connections.so:system/lib/tcp-connections.so \
+    device/htc/pico/prebuilt/lib/libdiag.so:system/lib/libdiag.so \
+    device/htc/pico/prebuilt/lib/libdsi_netctrl:system/lib/libdsi_netctrl \
+    device/htc/pico/prebuilt/lib/libdsutils.so:system/lib/libdsutils.so \
+    device/htc/pico/prebuilt/lib/libidl.so:system/lib/libidl.so \
+    device/htc/pico/prebuilt/lib/libqc-opt.so:system/lib/libqc-opt.so \
+    device/htc/pico/prebuilt/lib/libqdi.so:system/lib/libqdi.so \
+    device/htc/pico/prebuilt/lib/libqdp.so:system/lib/libqdp.so \
+    device/htc/pico/prebuilt/lib/libqmi.so:system/lib/libqmi.so \
+    device/htc/pico/prebuilt/lib/libqmiservices.so:system/lib/libqmiservices.so \
     vendor/htc/pico/proprietary/lib/libhtc_ril.so:system/lib/libhtc_ril.so
     
 # Audio DSP Profiles
@@ -228,7 +235,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
     dalvik.vm.lockprof.threshold=500 \
     dalvik.vm.dexopt-flags=m=y \
     ro.telephony.call_ring.multiple=false \
-    ro.vold.umsdirtyratio=20
+    ro.vold.umsdirtyratio=40
 
 PRODUCT_NAME := cm_pico
 PRODUCT_BRAND := HTC
