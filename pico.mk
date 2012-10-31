@@ -184,7 +184,7 @@ PRODUCT_COPY_FILES += \
 PRODUCT_COPY_FILES += \
     device/htc/pico/prebuilt/lib/libdnshostprio.so:system/lib/libdnshostprio.so \
     device/htc/pico/prebuilt/lib/libtcpfinaggr.so:system/lib/libtcpfinaggr.so \
-    device/htc/pico/prebuilt/lib/pp_proc_plugin:system/lib/pp_proc_plugin \
+    device/htc/pico/prebuilt/lib/pp_proc_plugin.so:system/lib/pp_proc_plugin.so \
     device/htc/pico/prebuilt/lib/qnet-plugin.so:system/lib/qnet-plugin.so \
     device/htc/pico/prebuilt/lib/tcp-connections.so:system/lib/tcp-connections.so \
     vendor/htc/pico/proprietary/lib/libhtc_ril.so:system/lib/libhtc_ril.so
