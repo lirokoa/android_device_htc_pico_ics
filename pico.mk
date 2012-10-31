@@ -180,7 +180,7 @@ PRODUCT_COPY_FILES += \
     device/htc/pico/prebuilt/lib/qnet-plugin.so:system/lib/qnet-plugin.so \
     device/htc/pico/prebuilt/lib/tcp-connections.so:system/lib/tcp-connections.so \
     device/htc/pico/prebuilt/lib/libdiag.so:system/lib/libdiag.so \
-    device/htc/pico/prebuilt/lib/libdsi_netctrl:system/lib/libdsi_netctrl \
+    device/htc/pico/prebuilt/lib/libdsi_netctrl.so:system/lib/libdsi_netctrl.so \
     device/htc/pico/prebuilt/lib/libdsutils.so:system/lib/libdsutils.so \
     device/htc/pico/prebuilt/lib/libidl.so:system/lib/libidl.so \
     device/htc/pico/prebuilt/lib/libqc-opt.so:system/lib/libqc-opt.so \
