@@ -1,6 +1,7 @@
 #
 # system.prop for pico
 #
+
 rild.libpath=/system/lib/libhtc_ril.so
 rild.libargs=-d /dev/smd0
 rilswitch.vendorlibpath=/system/lib/libhtc_ril.so
@@ -27,10 +28,8 @@ ro.opengles.version = 131072
 # For no auto focus devices
 ro.workaround.noautofocus = 1
 
-# 
 # Increase SKIA decode memory capability for progressive jpg file
-#
-ro.media.dec.jpeg.memcap 	= 20000000
+ro.media.dec.jpeg.memcap = 20000000
 
 # For QC perf binary hooks
 # src:vendor/qcom/proprietary/android-perf/release/lib/<CPU arch>/libqc-opt.so
