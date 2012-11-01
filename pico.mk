@@ -20,7 +20,8 @@ PRODUCT_PACKAGES += \
     libOmxCore \
     libOmxVidEnc \
     libOmxH264Dec \
-    libOmxMpeg4Dec
+    libOmxMpeg4Dec \
+    libdivxdrmdecrypt
     
 # Graphics 
 PRODUCT_PACKAGES += \
@@ -28,7 +29,12 @@ PRODUCT_PACKAGES += \
     gralloc.msm7x27a \
     hwcomposer.msm7x27a \
     libtilerenderer \
-    libQcomUI
+    libQcomUI \
+    libqdutils \
+    libopencorehw
+    libgenlock \
+    libmemalloc \
+    liboverlay
     
 # Audio
 PRODUCT_PACKAGES += \
@@ -223,3 +229,6 @@ PRODUCT_MODEL := HTC Explorer A310e
 PRODUCT_MANUFACTURER := HTC
 PRODUCT_AAPT_CONFIG := normal mdpi
 PRODUCT_AAPT_PREF_CONFIG := mdpi
+PRODUCT_TAGS += dalvik.gc.type-precise
+PRODUCT_BUILD_PROP_OVERRIDES += BUILD_UTC_DATE=0
+
