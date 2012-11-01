@@ -193,7 +193,7 @@ PRODUCT_COPY_FILES += \
     device/htc/pico/prebuilt/lib/libqdp.so:system/lib/libqdp.so \
     device/htc/pico/prebuilt/lib/libqmi.so:system/lib/libqmi.so \
     device/htc/pico/prebuilt/lib/libqmiservices.so:system/lib/libqmiservices.so \
-    device/htc/pico/prebuilt/lib/libv8.so:obj/lib/libv8.so \
+    device/htc/pico/prebuilt/lib/libv8.so:system/lib/libv8.so \
     vendor/htc/pico/proprietary/lib/libhtc_ril.so:system/lib/libhtc_ril.so
     
 # Audio DSP Profiles

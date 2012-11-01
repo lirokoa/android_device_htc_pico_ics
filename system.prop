@@ -35,7 +35,6 @@ ro.media.dec.jpeg.memcap 	= 20000000
 # For QC perf binary hooks
 # src:vendor/qcom/proprietary/android-perf/release/lib/<CPU arch>/libqc-opt.so
 ro.vendor.extension_library=/system/lib/libqc-opt.so
-dalvik.vm.stack-trace-file=/data/anr/traces.txt
 
 # Miscellaneous
 htc.audio.alc.enable = 1 
