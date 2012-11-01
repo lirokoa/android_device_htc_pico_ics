@@ -6,7 +6,7 @@ rild.libargs=-d /dev/smd0
 rilswitch.vendorlibpath=/system/lib/libhtc_ril.so
 ro.baseband.arch = msm
 ro.telephony.ril_class=HTCQualcommRIL
-ro.telephony.ril.v3=signalstrength
+ro.telephony.ril.v3=signalstrength,datacallapn
 ro.ril.update.acoustic.table = 1
 
 # Time between scans in seconds. Keep it high to minimize battery drain.
@@ -35,7 +35,6 @@ ro.media.dec.jpeg.memcap 	= 20000000
 # For QC perf binary hooks
 # src:vendor/qcom/proprietary/android-perf/release/lib/<CPU arch>/libqc-opt.so
 ro.vendor.extension_library=/system/lib/libqc-opt.so
-debug.camcorder.disablemeta=0
 dalvik.vm.stack-trace-file=/data/anr/traces.txt
 
 # Miscellaneous
