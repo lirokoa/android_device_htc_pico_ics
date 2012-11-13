@@ -1,6 +1,6 @@
 # Boot animation
 TARGET_SCREEN_HEIGHT := 320
-TARGET_SCREEN_WIDTH := 480
+TARGET_SCREEN_WIDTH  := 480
 
 # Include GSM stuff
 $(call inherit-product, vendor/cm/config/gsm.mk)
@@ -32,8 +32,8 @@ PRODUCT_COPY_FILES += \
 $(call inherit-product, device/htc/pico/pico.mk)
 
 # Release name and versioning
-PRODUCT_RELEASE_NAME := pico
-PRODUCT_VERSION_DEVICE_SPECIFIC := -UNOFFICIAL-BETA-1
+PRODUCT_RELEASE_NAME := Explorer
+PRODUCT_VERSION_DEVICE_SPECIFIC := -UNOFFICIAL-BETA-2
 CM_RELEASE := true
 
 # Product name
@@ -42,5 +42,5 @@ PRODUCT_BRAND := htc_europe
 PRODUCT_DEVICE := pico
 PRODUCT_MODEL := HTC Explorer A310e
 PRODUCT_MANUFACTURER := HTC
-PRODUCT_BUILD_PROP_OVERRIDES += PRODUCT_NAME=pico BUILD_ID=JZO54K BUILD_FINGERPRINT=htc_asia_india/htc_pico/pico:2.3.5/GRJ90/171430.1:user/release-keys PRIVATE_BUILD_DESC="1.12.720.1 CL171430 release-keys"
- 
+PRODUCT_BUILD_PROP_OVERRIDES += PRODUCT_NAME=pico BUILD_ID=JZO54K BUILD_FINGERPRINT=htc_europe/htc_pico/pico:2.3.5/GRJ90/207463.1:user/release-keys
+PRIVATE_BUILD_DESC="1.28.401.1 CL207463 release-keys"

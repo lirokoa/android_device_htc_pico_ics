@@ -29,13 +29,8 @@ PRODUCT_PACKAGES += \
     gralloc.msm7x27a \
     hwcomposer.msm7x27a \
     libtilerenderer \
-    libQcomUI \
-    libqdutils \
-    libopencorehw
-    libgenlock \
-    libmemalloc \
-    liboverlay
-    
+    libQcomUI
+
 # Audio
 PRODUCT_PACKAGES += \
     audio.primary.msm7x27a \
@@ -58,7 +53,8 @@ PRODUCT_PACKAGES += \
 # Misc
 PRODUCT_PACKAGES += \
     com.android.future.usb.accessory \
-    LegacyCamera
+    LegacyCamera \
+    HwaSettings
 
 # Init
 PRODUCT_COPY_FILES += \
@@ -197,6 +193,7 @@ PRODUCT_COPY_FILES += \
 
 # Keylayouts
 PRODUCT_COPY_FILES += \
+    device/htc/pico/files/CHANGELOG-CM.txt:system/etc/CHANGELOG-CM.txt \
     device/htc/pico/prebuilt/usr/keychars/qwerty2.kcm.bin:system/usr/keychars/qwerty2.kcm.bin \
     device/htc/pico/prebuilt/usr/keychars/qwerty.kcm.bin:system/usr/keychars/qwerty.kcm.bin \
     device/htc/pico/prebuilt/usr/keychars/pico-keypad.kcm.bin:system/usr/keychars/pico-keypad.kcm.bin \

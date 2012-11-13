@@ -1,0 +1,8 @@
+bin/*
+gen/*
+*.apk
+*.zip
+*.sh
+*.txt
+*.swp
+*~
