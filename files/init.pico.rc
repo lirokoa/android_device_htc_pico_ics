@@ -62,6 +62,10 @@ on boot
     write /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor ondemand
     write /sys/devices/system/cpu/cpufreq/ondemand/sampling_rate 40000
     
+    # hwui settings
+    mkdir /data/local/hwui.deny
+    chmod 0777 /data/local/hwui.deny
+
     # for CM performance
     chown root system /sys/devices/system/cpu/cpu0/cpufreq/scaling_available_frequencies
     chown root system /sys/devices/system/cpu/cpu0/cpufreq/scaling_available_governors
