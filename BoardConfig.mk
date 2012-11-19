@@ -41,9 +41,12 @@ BOARD_KERNEL_CMDLINE := no_console_suspend=1 console=null
 BOARD_KERNEL_BASE := 0x12c00000
 BOARD_PAGE_SIZE := 0x00000800
 
-# Additional librarys
+# Additional libraries
 TARGET_PROVIDES_LIBAUDIO := true
 BOARD_HAVE_HTC_AUDIO := true
+
+# Use the custom lights HAL
+TARGET_PROVIDES_LIBLIGHTS := true
 
 # Fix this up by examining /proc/mtd on a running device
 BOARD_BOOTIMAGE_PARTITION_SIZE := 0x00400000
