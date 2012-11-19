@@ -7,6 +7,8 @@ rild.libargs=-d /dev/smd0
 rilswitch.vendorlibpath=/system/lib/libhtc_ril.so
 ril.subscription.types=NV,RUIM
 ro.baseband.arch = msm
+DEVICE_PROVISIONED=1
+ro.telephony.ril_class=HTCQualcommRIL
 ro.ril.ecc.HTC-GCC=999,112,997
 ro.ril.ecc.HTC-WWE=999
 ro.ril.ecc.HTC-Dutch=112
@@ -65,7 +67,6 @@ ro.media.dec.jpeg.memcap = 20000000
 ro.vendor.extension_library=/system/lib/libqc-opt.so
  
 # Misc.
-DEVICE_PROVISIONED=1
 htc.audio.alc.enable   = 1
 htc.audio.swalt.enable = 1
 dalvik.vm.heapsize=48m

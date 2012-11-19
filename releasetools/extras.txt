@@ -59,7 +59,6 @@ media/audio/ringtones/Iridium.ogg
 media/audio/ringtones/Lyra.ogg
 media/audio/ringtones/Machina.ogg
 media/audio/ringtones/Nasqueron.ogg
-media/audio/ringtones/Orion.ogg
 media/audio/ringtones/Pegasus.ogg
 media/audio/ringtones/Perseus.ogg
 media/audio/ringtones/Pyxis.ogg

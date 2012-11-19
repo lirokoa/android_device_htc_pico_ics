@@ -3,7 +3,7 @@ CyanogenMod
 
 Visit http://github.com/CyanogenMod for full CyanogenMod changelogs and git access.
 
-Visit http://github.com/sakindia123 for full pico changelogs and git access
+Visit http://github.com/sakindia123/cm10_htc_pico for full pico changelogs and git access
 
 Visit http://review.cyanogenmod.com for the CM Gerrit instance.
 
