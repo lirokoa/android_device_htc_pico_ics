@@ -33,7 +33,7 @@ $(call inherit-product, device/htc/pico/pico.mk)
 
 # Release name and versioning
 PRODUCT_RELEASE_NAME := Explorer
-PRODUCT_VERSION_DEVICE_SPECIFIC := -UNOFFICIAL-BETA-2
+PRODUCT_VERSION_DEVICE_SPECIFIC := -UNOFFICIAL-BETA-3
 
 # Product name
 PRODUCT_NAME := cm_pico
