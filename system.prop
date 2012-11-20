@@ -8,7 +8,6 @@ rilswitch.vendorlibpath=/system/lib/libhtc_ril.so
 ril.subscription.types=NV,RUIM
 ro.baseband.arch = msm
 DEVICE_PROVISIONED=1
-ro.telephony.ril_class=HTCQualcommRIL
 ro.ril.ecc.HTC-GCC=999,112,997
 ro.ril.ecc.HTC-WWE=999
 ro.ril.ecc.HTC-Dutch=112
