@@ -36,7 +36,7 @@ PRODUCT_PACKAGES += \
     libqdutils \
     liboverlay \
     libtilerenderer \
-    libQcomUI \
+    libQcomUI
 
 # Audio
 PRODUCT_PACKAGES += \
@@ -200,7 +200,6 @@ PRODUCT_COPY_FILES += \
 
 # Keylayouts
 PRODUCT_COPY_FILES += \
-    device/htc/pico/files/CHANGELOG-CM.txt:system/etc/CHANGELOG-CM.txt \
     device/htc/pico/prebuilt/usr/keychars/qwerty2.kcm.bin:system/usr/keychars/qwerty2.kcm.bin \
     device/htc/pico/prebuilt/usr/keychars/qwerty.kcm.bin:system/usr/keychars/qwerty.kcm.bin \
     device/htc/pico/prebuilt/usr/keychars/pico-keypad.kcm.bin:system/usr/keychars/pico-keypad.kcm.bin \

@@ -73,7 +73,12 @@ on boot
     # Enable low memory killer to check file pages
     write /sys/module/lowmemorykiller/parameters/minfile 0,0,0,5120,5632,6144
     write /sys/module/lowmemorykiller/parameters/check_filepages 1
-    
+
+    # Configure and enable KSM
+    write /sys/kernel/mm/ksm/pages_to_scan 600
+    write /sys/kernel/mm/ksm/sleep_millisecs 3000
+    write /sys/kernel/mm/ksm/run 1
+
     #usb tethering
     chmod 0777 /sys/class/usb_composite/*
 
