@@ -72,6 +72,7 @@ BOARD_UMS_LUNFILE := "/sys/devices/platform/usb_mass_storage/lun0/file"
 # Bluetooth
 BOARD_HAVE_BLUETOOTH := true
 BOARD_HAVE_BLUETOOTH_BCM := true
+TARGET_NEEDS_BLUETOOTH_INIT_DELAY := true
 
 TARGET_SPECIFIC_HEADER_PATH := device/htc/pico/include
 
@@ -97,6 +98,7 @@ WIFI_DRIVER_FW_PATH_P2P          := "/system/etc/firmware/fw_bcm4330_p2p_b2.bin"
 WIFI_DRIVER_MODULE_NAME          := "bcmdhd"
 WIFI_DRIVER_MODULE_ARG           := "firmware_path=/system/etc/firmware/fw_bcm4330_b2.bin nvram_path=/proc/calibration iface_name=eth0"
 WIFI_BAND                        := 802_11_ABG
+BOARD_LEGACY_NL80211_STA_EVENTS  := true
 
 # Releasetools
 TARGET_RELEASETOOLS_EXTENSIONS := device/htc/pico/releasetools
@@ -110,10 +112,8 @@ BOARD_VENDOR_QCOM_GPS_LOC_API_AMSS_VERSION := 50000
 # Misc
 TARGET_BOOTANIMATION_PRELOAD := true
 TARGET_BOOTANIMATION_TEXTURE_CACHE := true
-TARGET_BOOTANIMATION_USE_RGB565 := true
 
 # Graphics
-BOARD_USE_SKIA_LCDTEXT := true
 TARGET_USES_GENLOCK := true
 USE_OPENGL_RENDERER := true
 BOARD_ADRENO_DECIDE_TEXTURE_TARGET := true
