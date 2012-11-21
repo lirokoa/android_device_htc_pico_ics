@@ -52,6 +52,9 @@ echo
 cd ../../frameworks/rs
 git fetch http://review.cyanogenmod.org/CyanogenMod/android_frameworks_rs refs/changes/58/26558/1 && git cherry-pick FETCH_HEAD
 echo
+cd ../base
+git fetch http://review.cyanogenmod.org/CyanogenMod/android_frameworks_base refs/changes/49/19249/1 && git checkout FETCH_HEAD
+echo
 cd ../ex
 git fetch http://review.cyanogenmod.org/CyanogenMod/android_frameworks_ex refs/changes/57/26557/1 && git cherry-pick FETCH_HEAD
 echo
