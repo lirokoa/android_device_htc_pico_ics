@@ -16,17 +16,27 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/full_base_telephony.mk)
 
 # Video decoding
 PRODUCT_PACKAGES += \
+    libdivxdrmdecrypt \
     libmm-omxcore \
-    libstagefrighthw \
     libOmxCore \
+    libOmxVdec \
+    libOmxVenc \
+    libOmxAacEnc \
+    libOmxAmrEnc \
+    libstagefrighthw
     
 # Graphics 
 PRODUCT_PACKAGES += \
     copybit.msm7x27a \
     gralloc.msm7x27a \
     hwcomposer.msm7x27a \
+    libgenlock \
+    libI420colorconvert \
+    libmemalloc \
+    libqdutils \
+    liboverlay \
     libtilerenderer \
-    libQcomUI
+    libQcomUI \
 
 # Audio
 PRODUCT_PACKAGES += \
@@ -50,7 +60,6 @@ PRODUCT_PACKAGES += \
 # Misc
 PRODUCT_PACKAGES += \
     com.android.future.usb.accessory \
-    LegacyCamera \
     HwaSettings
 
 # Init
@@ -134,7 +143,7 @@ PRODUCT_COPY_FILES += \
     vendor/htc/pico/proprietary/lib/libaudioeq.so:system/lib/libaudioeq.so \
     vendor/htc/pico/proprietary/lib/libhtc_acoustic.so:system/lib/libhtc_acoustic.so \
     
-# Liblights & Sensors
+# Prebuilt Sensors
 PRODUCT_COPY_FILES += \
     vendor/htc/pico/proprietary/lib/hw/sensors.pico.so:system/lib/hw/sensors.pico.so \
 
