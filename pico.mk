@@ -101,35 +101,35 @@ PRODUCT_COPY_FILES += \
 #    vendor/htc/pico/proprietary/lib/libdivxdrmdecrypt.so:system/lib/libdivxdrmdecrypt.so \
 
 PRODUCT_COPY_FILES += \
-    device/htc/pico/proprietary/omx/libmm-adspsvc.so:system/lib/libmm-adspsvc.so \
-    device/htc/pico/proprietary/omx/libOmxH264Dec.so:system/lib/libOmxH264Dec.so \
-    device/htc/pico/proprietary/omx/libOmxMpeg4Dec.so:system/lib/libOmxMpeg4Dec.so \
-    device/htc/pico/proprietary/omx/libOmxVidEnc.so:system/lib/libOmxVidEnc.so \
-    device/htc/pico/proprietary/omx/libmm-abl.so:system/lib/libmm-abl.so \
-    device/htc/pico/proprietary/omx/libmm-abl-oem.so:system/lib/libmm-abl-oem.so \
-    device/htc/pico/proprietary/omx/libmm-omxcore.so:system/lib/libmm-omxcore.so \
-    device/htc/pico/proprietary/omx/libOmxAacDec.so:system/lib/libOmxAacDec.so \
-    device/htc/pico/proprietary/omx/libOmxAacEnc.so:system/lib/libOmxAacEnc.so \
-    device/htc/pico/proprietary/omx/libOmxAdpcmDec.so:system/lib/libOmxAdpcmDec.so \
-    device/htc/pico/proprietary/omx/libOmxVidEnc.so:system/lib/libOmxVidEnc.so \
-    device/htc/pico/proprietary/omx/libOmxAmrDec.so:system/lib/libOmxAmrDec.so \
-    device/htc/pico/proprietary/omx/libOmxAmrEnc.so:system/lib/libOmxAmrEnc.so \
-    device/htc/pico/proprietary/omx/libOmxAmrRtpDec.so:system/lib/libOmxAmrRtpDec.so \
-    device/htc/pico/proprietary/omx/libOmxAmrwbDec.so:system/lib/libOmxAmrwbDec.so \
-    device/htc/pico/proprietary/omx/libOmxCore.so:system/lib/libOmxCore.so \
-    device/htc/pico/proprietary/omx/libOmxEvrcDec.so:system/lib/libOmxEvrcDec.so \
-    device/htc/pico/proprietary/omx/libOmxEvrcEnc.so:system/lib/libOmxEvrcEnc.so \
-    device/htc/pico/proprietary/omx/libOmxEvrcHwDec.so:system/lib/libOmxEvrcHwDec.so \
-    device/htc/pico/proprietary/omx/libOmxIttiamVdec.so:system/lib/libOmxIttiamVdec.so \
-    device/htc/pico/proprietary/omx/libOmxMp3Dec.so:system/lib/libOmxMp3Dec.so \
-    device/htc/pico/proprietary/omx/libOmxOn2Dec.so:system/lib/libOmxOn2Dec.so \
-    device/htc/pico/proprietary/omx/libOmxQcelp13Dec.so:system/lib/libOmxQcelp13Dec.so \
-    device/htc/pico/proprietary/omx/libOmxQcelp13Enc.so:system/lib/libOmxQcelp13Enc.so \
-    device/htc/pico/proprietary/omx/libOmxQcelpHwDec.so:system/lib/libOmxQcelpHwDec.so \
-    device/htc/pico/proprietary/omx/libOmxrv9Dec.so:system/lib/libOmxrv9Dec.so \
-    device/htc/pico/proprietary/omx/libOmxVp8Dec.so:system/lib/libOmxVp8Dec.so \
-    device/htc/pico/proprietary/omx/libOmxWmaDec.so:system/lib/libOmxWmaDec.so \
-    device/htc/pico/proprietary/omx/libOmxWmvDec.so:system/lib/libOmxWmvDec.so
+    device/htc/pico/prebuilt/omx/libmm-adspsvc.so:system/lib/libmm-adspsvc.so \
+    device/htc/pico/prebuilt/omx/libOmxH264Dec.so:system/lib/libOmxH264Dec.so \
+    device/htc/pico/prebuilt/omx/libOmxMpeg4Dec.so:system/lib/libOmxMpeg4Dec.so \
+    device/htc/pico/prebuilt/omx/libOmxVidEnc.so:system/lib/libOmxVidEnc.so \
+    device/htc/pico/prebuilt/omx/libmm-abl.so:system/lib/libmm-abl.so \
+    device/htc/pico/prebuilt/omx/libmm-abl-oem.so:system/lib/libmm-abl-oem.so \
+    device/htc/pico/prebuilt/omx/libmm-omxcore.so:system/lib/libmm-omxcore.so \
+    device/htc/pico/prebuilt/omx/libOmxAacDec.so:system/lib/libOmxAacDec.so \
+    device/htc/pico/prebuilt/omx/libOmxAacEnc.so:system/lib/libOmxAacEnc.so \
+    device/htc/pico/prebuilt/omx/libOmxAdpcmDec.so:system/lib/libOmxAdpcmDec.so \
+    device/htc/pico/prebuilt/omx/libOmxVidEnc.so:system/lib/libOmxVidEnc.so \
+    device/htc/pico/prebuilt/omx/libOmxAmrDec.so:system/lib/libOmxAmrDec.so \
+    device/htc/pico/prebuilt/omx/libOmxAmrEnc.so:system/lib/libOmxAmrEnc.so \
+    device/htc/pico/prebuilt/omx/libOmxAmrRtpDec.so:system/lib/libOmxAmrRtpDec.so \
+    device/htc/pico/prebuilt/omx/libOmxAmrwbDec.so:system/lib/libOmxAmrwbDec.so \
+    device/htc/pico/prebuilt/omx/libOmxCore.so:system/lib/libOmxCore.so \
+    device/htc/pico/prebuilt/omx/libOmxEvrcDec.so:system/lib/libOmxEvrcDec.so \
+    device/htc/pico/prebuilt/omx/libOmxEvrcEnc.so:system/lib/libOmxEvrcEnc.so \
+    device/htc/pico/prebuilt/omx/libOmxEvrcHwDec.so:system/lib/libOmxEvrcHwDec.so \
+    device/htc/pico/prebuilt/omx/libOmxIttiamVdec.so:system/lib/libOmxIttiamVdec.so \
+    device/htc/pico/prebuilt/omx/libOmxMp3Dec.so:system/lib/libOmxMp3Dec.so \
+    device/htc/pico/prebuilt/omx/libOmxOn2Dec.so:system/lib/libOmxOn2Dec.so \
+    device/htc/pico/prebuilt/omx/libOmxQcelp13Dec.so:system/lib/libOmxQcelp13Dec.so \
+    device/htc/pico/prebuilt/omx/libOmxQcelp13Enc.so:system/lib/libOmxQcelp13Enc.so \
+    device/htc/pico/prebuilt/omx/libOmxQcelpHwDec.so:system/lib/libOmxQcelpHwDec.so \
+    device/htc/pico/prebuilt/omx/libOmxrv9Dec.so:system/lib/libOmxrv9Dec.so \
+    device/htc/pico/prebuilt/omx/libOmxVp8Dec.so:system/lib/libOmxVp8Dec.so \
+    device/htc/pico/prebuilt/omx/libOmxWmaDec.so:system/lib/libOmxWmaDec.so \
+    device/htc/pico/prebuilt/omx/libOmxWmvDec.so:system/lib/libOmxWmvDec.so
     
 # Set usb type
 ADDITIONAL_DEFAULT_PROPERTIES += \
