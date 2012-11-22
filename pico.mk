@@ -116,7 +116,7 @@ PRODUCT_COPY_FILES += \
     vendor/htc/pico/proprietary/omx/libOmxAmrEnc.so:system/lib/libOmxAmrEnc.so \
     vendor/htc/pico/proprietary/omx/libOmxAmrRtpDec.so:system/lib/libOmxAmrRtpDec.so \
     vendor/htc/pico/proprietary/omx/libOmxAmrwbDec.so:system/lib/libOmxAmrwbDec.so \
-    vendor/htc/pico/proprietary/omx/libOmxCore:system/lib/libOmxCore.so \
+    vendor/htc/pico/proprietary/omx/libOmxCore.so:system/lib/libOmxCore.so \
     vendor/htc/pico/proprietary/omx/libOmxEvrcDec.so:system/lib/libOmxEvrcDec.so \
     vendor/htc/pico/proprietary/omx/libOmxEvrcEnc.so:system/lib/libOmxEvrcEnc.so \
     vendor/htc/pico/proprietary/omx/libOmxEvrcHwDec.so:system/lib/libOmxEvrcHwDec.so \
