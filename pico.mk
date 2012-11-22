@@ -91,7 +91,6 @@ PRODUCT_COPY_FILES += \
     device/htc/pico/prebuilt/lib/libqc-opt.so:obj/lib/libqc-opt.so
 
 # OMX
-PRODUCT_COPY_FILES += \
 #    vendor/htc/pico/proprietary/lib/libmm-adspsvc.so:system/lib/libmm-adspsvc.so \
 #    vendor/htc/pico/proprietary/lib/libOmxH264Dec.so:system/lib/libOmxH264Dec.so \
 #    vendor/htc/pico/proprietary/lib/libOmxMpeg4Dec.so:system/lib/libOmxMpeg4Dec.so \
@@ -101,13 +100,13 @@ PRODUCT_COPY_FILES += \
 #    vendor/htc/pico/proprietary/lib/libmmparser_divxdrmlib.so:system/lib/libmmparser_divxdrmlib.so \
 #    vendor/htc/pico/proprietary/lib/libdivxdrmdecrypt.so:system/lib/libdivxdrmdecrypt.so \
 
+PRODUCT_COPY_FILES += \
     vendor/htc/pico/proprietary/omx/libmm-adspsvc.so:system/lib/libmm-adspsvc.so \
     vendor/htc/pico/proprietary/omx/libOmxH264Dec.so:system/lib/libOmxH264Dec.so \
     vendor/htc/pico/proprietary/omx/libOmxMpeg4Dec.so:system/lib/libOmxMpeg4Dec.so \
     vendor/htc/pico/proprietary/omx/libOmxVidEnc.so:system/lib/libOmxVidEnc.so \
     vendor/htc/pico/proprietary/omx/libmm-abl.so:system/lib/libmm-abl.so \
     vendor/htc/pico/proprietary/omx/libmm-abl-oem.so:system/lib/libmm-abl-oem.so \
-    vendor/htc/pico/proprietary/omx/libmmjpeg.so:system/lib/libmmjpeg.so \
     vendor/htc/pico/proprietary/omx/libmm-omxcore.so:system/lib/libmm-omxcore.so \
     vendor/htc/pico/proprietary/omx/libOmxAacDec.so:system/lib/libOmxAacDec.so \
     vendor/htc/pico/proprietary/omx/libOmxAacEnc.so:system/lib/libOmxAacEnc.so \
@@ -130,7 +129,7 @@ PRODUCT_COPY_FILES += \
     vendor/htc/pico/proprietary/omx/libOmxrv9Dec.so:system/lib/libOmxrv9Dec.so \
     vendor/htc/pico/proprietary/omx/libOmxVp8Dec.so:system/lib/libOmxVp8Dec.so \
     vendor/htc/pico/proprietary/omx/libOmxWmaDec.so:system/lib/libOmxWmaDec.so \
-    vendor/htc/pico/proprietary/omx/libOmxWmvDec.so:system/lib/libOmxWmvDec.so \
+    vendor/htc/pico/proprietary/omx/libOmxWmvDec.so:system/lib/libOmxWmvDec.so
     
 # Set usb type
 ADDITIONAL_DEFAULT_PROPERTIES += \
