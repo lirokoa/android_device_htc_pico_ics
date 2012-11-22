@@ -33,7 +33,7 @@ TARGET_CPU_ABI := armeabi-v7a
 TARGET_CPU_ABI2 := armeabi
 ARCH_ARM_HAVE_TLS_REGISTER := true
 TARGET_BOOTLOADER_BOARD_NAME := pico
-BOARD_NO_SPEAKER := true # msm7627a doesn't have speaker
+BOARD_NO_SPEAKER := true # msm7x27a doesn't have speaker
 TARGET_CORTEX_CACHE_LINE_32 := true
 
 # Kernel
@@ -50,8 +50,8 @@ TARGET_PROVIDES_LIBLIGHTS := true
 
 # Fix this up by examining /proc/mtd on a running device
 BOARD_BOOTIMAGE_PARTITION_SIZE := 0x00400000
-BOARD_RECOVERYIMAGE_PARTITION_SIZE := 0x00600000  #kernel don't fit anymore in recovery!
-BOARD_SYSTEMIMAGE_PARTITION_SIZE := 0x0eb40000
+BOARD_RECOVERYIMAGE_PARTITION_SIZE := 0x00600000  #kernel doesn't fit anymore in recovery!
+BOARD_SYSTEMIMAGE_PARTITION_SIZE := 524288000     #system doesnt fit anymore in /system!  -->0x0eb40000
 BOARD_USERDATAIMAGE_PARTITION_SIZE := 0x09600000
 BOARD_FLASH_BLOCK_SIZE := 262144
 
